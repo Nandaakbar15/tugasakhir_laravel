@@ -9,6 +9,9 @@ use App\Models\Konsol;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ProfilToko;
+use App\Models\Notifikasi;
+use App\Notifications\SendNotification;
+use App\Models\Teknisi;
 
 class PelangganController extends Controller
 {
@@ -50,6 +53,22 @@ class PelangganController extends Controller
             'email' => $request->email,
         ]);
 
+        $teknisi = Teknisi::first();
+
+        $isi_notifikasi = "Kamu dapat notifikasi dari pelanggan!\n";
+        $isi_notifikasi .= "\nNama Pelanggan: " . $request->nama_pelanggan . "\n";
+        $isi_notifikasi .= "\nAlamat: " . $request->alamat . "\n";
+        $isi_notifikasi .= "\nEmail: " . $request->email . "\n";
+        $isi_notifikasi .= "\nNo. Telp: " . $request->no_telp . "\n";
+        $isi_notifikasi .= "\nNama Konsol: " . $request->nama_konsol . "\n";
+        $isi_notifikasi .= "\nKerusakan: " . $request->kendala_kerusakan . "\n";
+
+        $notifikasi = Notifikasi::create([
+            'id_pelanggan' => $pelanggan->id_pelanggan,
+            'id_teknisi' => $teknisi->id_teknisi,
+            'isi_notifikasi' => $isi_notifikasi,
+        ]);
+
         $file = $request->file('foto');
         $fileName = time() . '_' . $file->getClientOriginalName();
         $path = $file->storeAs('images', $fileName, 'public');
@@ -72,8 +91,10 @@ class PelangganController extends Controller
             'id_konsol' => $konsol->id_konsol,
         ]);
 
-        return redirect('/pelanggan/dashboardpelanggan')->with('success', 'Data kamu sudah di kirim ke teknisi!');
+        $pelanggan->notify(new SendNotification($notifikasi));
+        // $user->notify(new SendNotification($isi_notifikasi));
 
+        return redirect('/pelanggan/dashboardpelanggan')->with('success', 'Data kamu sudah di kirim ke teknisi!');
     }
 
     /**

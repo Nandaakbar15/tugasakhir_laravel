@@ -10,8 +10,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Pelanggan;
+use App\Model\Pembayaran;
+use App\Models\Pembayaran as ModelsPembayaran;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -55,5 +57,15 @@ class User extends Authenticatable
     public function pelanggan()
     {
         return $this->hasOne(Pelanggan::class, 'id_pelanggan');
+    }
+
+    public function teknisi()
+    {
+        return $this->hasMany(Teknisi::class, 'id_teknisi');
+    }
+
+    public function pembayaran()
+    {
+        return $this->hasMany(ModelsPembayaran::class, 'id_pelanggan');
     }
 }

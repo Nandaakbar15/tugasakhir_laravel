@@ -27,7 +27,7 @@ class RegisterController extends Controller
 
         $user = User::create($validateData);
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
         return redirect('/login')->with('success', 'Data user berhasil di tambah! Verifikasi email anda sebelum login!');
     }

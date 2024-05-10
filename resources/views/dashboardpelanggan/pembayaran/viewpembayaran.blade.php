@@ -30,9 +30,9 @@
 
     <div class="card" style="width: 18rem;">
         {{-- <img src="..." class="card-img-top" alt="..."> --}}
-        @foreach ($pelanggan as $d)
+        @foreach ($payments as $d)
             <div class="card-body">
-            <h5 class="card-title">ID Pelanggan : {{ $d->id_pelanggan }}</h5>
+            <h5 class="card-title">ID Pelanggan : {{ $d->id }}</h5>
             @foreach ($antrian as $c)
                 <h5 class="card-title">ID Antrian : {{ $c->id_antrian }}</h5>
             @endforeach

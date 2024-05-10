@@ -3,21 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pelanggan;
 use App\Models\Antrian;
 use App\Models\Pembayaran;
+use App\Models\User;
 use Midtrans\Config;
 use Midtrans\Snap;
 class PembayaranController extends Controller
 {
     public function viewpembayaran() // view menu pembayaran
     {
+
+        // $user = Auth::user();
+
+        // $payments = $user->pembayaran;
+
         $pelanggan = Pelanggan::all();
         $Antrian = Antrian::all();
         return view('dashboardpelanggan.pembayaran.viewpembayaran', [
+            // 'payments' => $payments,
             'pelanggan' => $pelanggan,
-            'antrian' => $Antrian
+            'antrian' => $Antrian,
         ]);
+
+        // return view('dashboardpelanggan.pembayaran.viewpembayaran');
     }
 
     public function showCheckout(Request $request)
