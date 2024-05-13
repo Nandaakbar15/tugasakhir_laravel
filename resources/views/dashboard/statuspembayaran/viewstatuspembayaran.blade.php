@@ -13,6 +13,9 @@
                                             <th>ID Pembayaran</th>
                                             <th>ID Pelanggan</th>
                                             <th>ID Antrian</th>
+                                            <th>Nama Pelanggan</th>
+                                            <th>Email</th>
+                                            <th>Nomor Telepon</th>
                                             <th>Jumlah Pembayaran</th>
                                             <th>Tanggal Pembayaran</th>
                                             <th>Status Pembayaran</th>
@@ -24,6 +27,9 @@
                                             <td>{{ $data->id_pembayaran }}</td>
                                             <td>{{ $data->id_pelanggan }}</td>
                                             <td>{{ $data->id_antrian }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>{{ $data->no_telp }}</td>
                                             <td>{{ $data->jumlah_pembayaran }}</td>
                                             <td>{{ $data->tgl_pembayaran }}</td>
                                             <td>{{ $data->status }}</td>

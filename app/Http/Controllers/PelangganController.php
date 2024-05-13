@@ -55,8 +55,8 @@ class PelangganController extends Controller
 
         $teknisi = Teknisi::first();
 
-        $isi_notifikasi = "Kamu dapat notifikasi dari pelanggan!\n";
-        $isi_notifikasi .= "\nNama Pelanggan: " . $request->nama_pelanggan . "\n";
+        // $isi_notifikasi = "Kamu dapat notifikasi dari pelanggan!\n";
+        $isi_notifikasi = "\nNama Pelanggan: " . $request->nama_pelanggan . "\n";
         $isi_notifikasi .= "\nAlamat: " . $request->alamat . "\n";
         $isi_notifikasi .= "\nEmail: " . $request->email . "\n";
         $isi_notifikasi .= "\nNo. Telp: " . $request->no_telp . "\n";

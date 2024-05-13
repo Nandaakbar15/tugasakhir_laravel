@@ -10,8 +10,6 @@
 <body>
 
     <div class="container-fluid">
-        <h1>Profil Toko</h1>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="/pelanggan/dashboardpelanggan">Playstation Games</a>
@@ -28,19 +26,20 @@
             </div>
         </nav>
 
+        <h1>Profil Toko</h1>
+
         <div class="card-shadow">
-            <img src="{{ asset($profiltoko->foto) }}" class="rounded mx-auto d-block" alt="..." width="500px" height="300px">
+            @foreach ($profilToko as $data)
+            <img src="{{ asset($data->foto) }}" class="rounded mx-auto d-block" alt="..." width="500px" height="300px">
             <div class="card-body">
-             @foreach ($profilToko as $toko)
-                <p>Nama Toko: {{ $toko->nama_toko }}</p>
-                <p>Deskripsi Toko: {{ $toko->deskripsi }}</p>
+                <p>Nama Toko: {{ $data->nama_toko }}</p>
+                <p>Deskripsi Toko: {{ $data->deskripsi }}</p>
                 <a href="/pelanggan/dashboardpelanggan" class="btn btn-primary">Kembali</a>
             </div>
             <br>
-        @endforeach
+            @endforeach
+        </div>
     </div>
-    </div>
-
     <script src="{{ asset("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css") }}"></script>
 </body>
 </html>

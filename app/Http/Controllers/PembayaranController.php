@@ -20,11 +20,11 @@ class PembayaranController extends Controller
         // $payments = $user->pembayaran;
 
         $pelanggan = Pelanggan::all();
-        $Antrian = Antrian::all();
+        $antrian = Antrian::all();
         return view('dashboardpelanggan.pembayaran.viewpembayaran', [
             // 'payments' => $payments,
             'pelanggan' => $pelanggan,
-            'antrian' => $Antrian,
+            'antrian' => $antrian,
         ]);
 
         // return view('dashboardpelanggan.pembayaran.viewpembayaran');
@@ -54,6 +54,9 @@ class PembayaranController extends Controller
     {
         $id_pelanggan = $request->input("id_pelanggan");
         $id_antrian = $request->input("id_antrian");
+        $nama = $request->input("nama");
+        $email = $request->input("email");
+        $no_telp = $request->input("no_telp");
         $jumlah_pembayaran = $request->input('jumlah_pembayaran');
 
         $pelanggan = Pelanggan::find($id_pelanggan);
@@ -62,6 +65,9 @@ class PembayaranController extends Controller
         $pembayaran = new Pembayaran();
         $pembayaran->id_pelanggan = $id_pelanggan;
         $pembayaran->id_antrian = $id_antrian;
+        $pembayaran->nama = $nama;
+        $pembayaran->email =  $email;
+        $pembayaran->no_telp = $no_telp;
         $pembayaran->jumlah_pembayaran = $jumlah_pembayaran;
         $pembayaran->tgl_pembayaran = now();
         $pembayaran->save(); // pas masukin pembayarannya ini masuk ke database dan statusnya defaultnya unpaid
@@ -84,9 +90,9 @@ class PembayaranController extends Controller
 
          // Set customer details
         $customer_details = [
-            'first_name' => $pelanggan->nama_pelanggan, // first namenya ambil dari nama pelanggan
-            'email' => $pelanggan->email, // email dari database pelanggan
-            'phone' => $pelanggan->nomor_telepon, // no telp dari database pelanggan juga
+            'first_name' => $pembayaran->nama, // first namenya ambil dari nama pelanggan
+            'email' => $pembayaran->email, // email dari database pelanggan
+            'phone' => $pembayaran->no_telp, // no telp dari database pelanggan juga
         ];
 
         // Set item details (optional)
@@ -115,6 +121,6 @@ class PembayaranController extends Controller
 
         // redirect ke view detail pembayaran atau checkout
         // kalau misalkan udah masukin form pembayarannya langsung ke halaman detail pembayarannya
-        return view('dashboardpelanggan.pembayaran.checkout', compact('payment_token', 'pelanggan', 'antrian', 'jumlah_pembayaran',));
+        return view('dashboardpelanggan.pembayaran.checkout', compact('payment_token', 'pelanggan', 'antrian', 'jumlah_pembayaran', 'nama', 'email', 'no_telp'));
     }
 }

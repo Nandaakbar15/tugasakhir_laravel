@@ -11,7 +11,7 @@ class Pembayaran extends Model
     use HasFactory;
     protected $table = 'tbl_pembayaran';
     protected $primaryKey = 'id_pembayaran';
-    protected $fillable = ["id_pelanggan", "id_antrian", "jumlah_pembayaran", "tgl_pembayaran", "status"];
+    protected $fillable = ["id_pelanggan", "id_antrian", "nama", "email","no_telp", "jumlah_pembayaran", "tgl_pembayaran", "status"];
 
     public function user()
     {

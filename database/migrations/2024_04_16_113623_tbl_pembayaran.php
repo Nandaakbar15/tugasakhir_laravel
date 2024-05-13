@@ -17,6 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger("id_antrian");
             $table->foreign("id_pelanggan")->references("id_pelanggan")->on("tbl_pelanggan");
             $table->foreign("id_antrian")->references("id_antrian")->on("tbl_antrian");
+            $table->string("nama");
+            $table->string("email");
+            $table->string("no_telp");
             $table->biginteger("jumlah_pembayaran");
             $table->date("tgl_pembayaran");
             $table->enum('status', ['Unpaid', 'Paid']);

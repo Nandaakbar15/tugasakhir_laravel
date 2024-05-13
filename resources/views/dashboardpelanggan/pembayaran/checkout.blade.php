@@ -32,7 +32,15 @@
                 <table>
                     <tr>
                         <td>Nama Pelanggan</td>
-                        <td> : {{ $pelanggan->nama_pelanggan }}</td>
+                        <td> : {{ $pembayaran->nama }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Pelanggan</td>
+                        <td> : {{ $pembayaran->email }}</td>
+                    </tr>
+                    <tr>
+                        <td>No. Telepon Pelanggan</td>
+                        <td> : {{ $pembayaran->no_telp }}</td>
                     </tr>
                     <tr>
                         <td>No. Antrian</td>
@@ -60,6 +68,7 @@
                     /* You may add your own implementation here */
                     alert("payment success!");
                     console.log(result);
+                    document.location.href = "/pelanggan/dashboardpelanggan";
                 },
                 onPending: function (result) {
                     /* You may add your own implementation here */
