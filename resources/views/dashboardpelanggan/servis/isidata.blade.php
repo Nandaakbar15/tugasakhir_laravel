@@ -27,7 +27,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">No. Telp</label>
+                    <label for="no_telp" class="form-label">No. Telp</label>
                     <input type="text" class="form-control @error('no_telp') is-invalid @enderror" name="no_telp" id="no_telp" required value="{{ old('no_telp') }}">
 
                     @error('no_telp')
@@ -38,7 +38,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email" required value="{{ old('email') }}">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" required value="{{ old('email') }}">
 
                     @error('email')
                         <div class="is-invalid">

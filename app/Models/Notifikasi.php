@@ -16,4 +16,9 @@ class Notifikasi extends Model
     {
         return $this->belongsTo(Pelanggan::class, "id_pelanggan");
     }
+
+    public function teknisi()
+    {
+        return $this->belongsTo(Teknisi::class, "id_teknisi");
+    }
 }

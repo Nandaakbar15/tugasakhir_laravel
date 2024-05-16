@@ -27,8 +27,12 @@ Dari Sisi Teknisi :
 
 ## FITUR YANG BELUM ADA
 
--   Implementasi chat bot Whatsapp
 -   Masukin list request Game pada saat pelanggan mengisi data
+
+## FITUR YANG DI PERBAIKI
+
+-   Implementasi notifikasi email dari pelanggan ke teknisi
+-   Menyempurnakan fitur pembayaran
 
 ## Contributing
 

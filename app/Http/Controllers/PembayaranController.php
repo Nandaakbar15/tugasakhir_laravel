@@ -36,6 +36,7 @@ class PembayaranController extends Controller
         $payment_token = $request->input('payment_token');
 
         $pelanggan = Pelanggan::find($request->input('id_pelanggan'));
+        $pembayaran = Pembayaran::find($request->input('id_pembayaran'));
         $antrian = Antrian::find($request->input('id_antrian'));
 
         if (!$pelanggan || !$antrian) {
@@ -46,7 +47,8 @@ class PembayaranController extends Controller
         return view('dashboardpelanggan.pembayaran.checkout', [
             'payment_token' => $payment_token,
             'pelanggan' => $pelanggan,
-            'antrian' => $antrian
+            'antrian' => $antrian,
+            'pembayaran' => $pembayaran
         ]);
     }
 
@@ -70,6 +72,7 @@ class PembayaranController extends Controller
         $pembayaran->no_telp = $no_telp;
         $pembayaran->jumlah_pembayaran = $jumlah_pembayaran;
         $pembayaran->tgl_pembayaran = now();
+        $pembayaran->status = 'paid';
         $pembayaran->save(); // pas masukin pembayarannya ini masuk ke database dan statusnya defaultnya unpaid
 
         Config::$serverKey = config('midtrans.server_key'); // ambil server key dari midtrans
@@ -121,6 +124,6 @@ class PembayaranController extends Controller
 
         // redirect ke view detail pembayaran atau checkout
         // kalau misalkan udah masukin form pembayarannya langsung ke halaman detail pembayarannya
-        return view('dashboardpelanggan.pembayaran.checkout', compact('payment_token', 'pelanggan', 'antrian', 'jumlah_pembayaran', 'nama', 'email', 'no_telp'));
+        return view('dashboardpelanggan.pembayaran.checkout', compact('payment_token', 'pelanggan', 'antrian', 'jumlah_pembayaran', 'nama', 'email', 'no_telp', 'pembayaran'));
     }
 }
