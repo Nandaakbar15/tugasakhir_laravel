@@ -36,6 +36,11 @@ class Pelanggan extends Model
         return $this->belongsTo(ProfilToko::class, "id_toko");
     }
 
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class, "id_pembayaran");
+    }
+
     public function scopeFilter($query)
     {
         if(request('cari')) {

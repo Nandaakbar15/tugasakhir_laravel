@@ -35,6 +35,11 @@ class Antrian extends Model
         return $this->belongsTo(User::class, 'id_pelanggan');
     }
 
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class, "id_pembayaran");
+    }
+
     public function scopeFilter($query)
     {
         if(request('cari_laporan')) {
