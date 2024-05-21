@@ -20,7 +20,13 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/pelanggan/tambahGame">Tambah ke list!</a></div>
+                                <div class="text-center">
+                                    <form action="/pelanggan/tambahGame" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id_game" value="{{ $item->id_game }}">
+                                        <button type="submit" class="btn btn-outline-dark mt-auto">Tambah ke list!</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

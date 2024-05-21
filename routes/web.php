@@ -52,9 +52,10 @@ Route::prefix('pelanggan')->group(function() {
     Route::get('/servis', 'App\Http\Controllers\PelangganController@create')->middleware('auth'); // view untuk servis
     Route::post('/isidata', 'App\Http\Controllers\PelangganController@store')->middleware('auth'); // logika untuk mengisi data
     Route::get('/daftargame', 'App\Http\Controllers\DaftarGameController@daftar_game'); // view daftar game
-    Route::post('/tambahGame', 'App\Http\Controllers\DaftarGameController@tambah_game'); // logika tambah game
-    Route::get('/pembayaran', 'App\Http\Controllers\PembayaranController@viewpembayaran');
-    Route::get('/checkout', 'App\Http\Controllers\PembayaranController@showCheckout')->name('checkout');
+    Route::post('/tambahGame', 'App\Http\Controllers\DaftarGameController@tambahGame'); // logika tambah game
+    Route::delete('/deleteList', 'App\Http\Controllers\DaftarGameController@deleteListGame'); // hapus game dari list
+    Route::get('/pembayaran', 'App\Http\Controllers\PembayaranController@viewpembayaran'); // view pembayaran
+    Route::get('/checkout', 'App\Http\Controllers\PembayaranController@showCheckout')->name('checkout'); // view detail pembayaran
     Route::post('/bayar', 'App\Http\Controllers\PembayaranController@bayar');
 });
 

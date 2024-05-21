@@ -80,9 +80,9 @@
 					</div>
 
                      <!-- Optionally, add a message for email verification -->
-                    <div class="text-center p-t-10">
+                    {{-- <div class="text-center p-t-10">
                         <small>An email verification link will be sent upon registration.</small>
-                    </div>
+                    </div> --}}
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">

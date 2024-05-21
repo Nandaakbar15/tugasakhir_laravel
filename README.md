@@ -11,28 +11,29 @@
 
 Dari Sisi pelanggan:
 
--   Nambahin data ke teknisi
--   Lihat Status Servis (Kalo di sisi user pelanggan cuman bisa lihat aja)
--   Fitur Pembayaran dengan midtrans (Sudah di sempurnakan)
--   Bisa lihat profil toko
+-   Nambahin data ke teknisi ✅
+-   Lihat Status Servis (Kalo di sisi user pelanggan cuman bisa lihat aja) ✅
+-   Fitur Pembayaran dengan midtrans (Sudah di sempurnakan) ✅
+-   Bisa lihat profil toko ✅
 
 Dari Sisi Teknisi :
 
--   Dapat notifikasi emai dari pelanggan dan isinya berupa data pelanggan
--   Bisa CRUD Data User
--   Bisa lihat status pembayaran atau transaksi yang masuk dari pelanggan
--   Bisa lihat laporan servis dan bisa export data ke excel atau PDF
--   Bisa ubah profil toko
--   Bisa CRUD Data Game
+-   Dapat notifikasi emai dari pelanggan dan isinya berupa data pelanggan ⌛ (Nanti di sempurnakan)
+-   Bisa CRUD Data User ✅
+-   Bisa lihat status pembayaran atau transaksi yang masuk dari pelanggan ✅
+-   Bisa lihat laporan servis dan bisa export data ke excel atau PDF ✅
+-   Bisa ubah profil toko ✅
+-   Bisa CRUD Data Game ✅
 
 ## FITUR YANG BELUM ADA
 
--   Masukin list request Game pada saat pelanggan mengisi data
+-   Masukin list request Game pada saat pelanggan mengisi data ✅
 
 ## FITUR YANG DI PERBAIKI
 
--   Implementasi notifikasi email dari pelanggan ke teknisi
--   Menyempurnakan fitur pembayaran
+-   Implementasi notifikasi email dari pelanggan ke teknisi ✅
+-   Menyempurnakan fitur pembayaran ✅
+-   Memperbaiki bug dan error pada saat membuka halaman status servis di dashboard pelanggan ✅
 
 ## Contributing
 

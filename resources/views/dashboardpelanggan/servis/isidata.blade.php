@@ -79,6 +79,45 @@
                 <button type="submit" class="btn btn-primary">Kirim!</button>
             </form>
             <a href="/pelanggan/daftargame">Mau request game ke konsol kamu? Klik link ini!</a>
+            <table class="table table-primary table-striped-columns">
+                <thead>
+                    <tr>
+                        <th>Id Game</th>
+                        <th>Nama Game</th>
+                        <th>Developer</th>
+                        <th>Tanggal Rilis</th>
+                        <th>Platform</th>
+                        <th>Foto</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (session('game'))
+                        @foreach (session('game') as $item)
+                        <tr>
+                            <td>{{ $item['id_game'] }}</td>
+                            <td>{{ $item['nama_game'] }}</td>
+                            <td>{{ $item['developer'] }}</td>
+                            <td>{{ $item['tgl_rilis'] }}</td>
+                            <td>{{ $item['platform'] }}</td>
+                            <td><img src="{{ asset($item['foto']) }}" width="100px" height="80px"></td>
+                            <td>
+                                <form action="/pelanggan/deleteList" class="d-inline" method="POST">
+                                    @method('delete')
+                                    @csrf
+                                    <input type="hidden" name="id_game" value="{{ $item['id_game'] }}">
+                                    <button class="badge border-0" onclick="return confirm('Yakin mau hapus game dari list?')"><img src="{{ asset('images/delete.png') }}" alt="" width="60px" height="40px"></button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="6" class="text-center">Belum ada game yang ada di list</td>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>
         </div>
         <a href="/pelanggan/dashboardpelanggan" class="btn btn-primary">Kembali</a>
     </div>

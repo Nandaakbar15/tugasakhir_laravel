@@ -8,7 +8,7 @@ use App\Models\Pembayaran;
 
 class StatusPembayaranController extends Controller
 {
-    public function viewstatusPembayaran()
+    public function viewstatusPembayaran() // view status pembayaran
     {
         $pembayaran = Pembayaran::all();
         $username = Auth::user()->name;

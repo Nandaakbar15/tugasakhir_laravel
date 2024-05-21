@@ -30,7 +30,7 @@ class PembayaranController extends Controller
         // return view('dashboardpelanggan.pembayaran.viewpembayaran');
     }
 
-    public function showCheckout(Request $request)
+    public function showCheckout(Request $request) // view detail pembayaran
     {
         // Retrieve payment_token from the request
         $payment_token = $request->input('payment_token');
@@ -73,7 +73,7 @@ class PembayaranController extends Controller
         $pembayaran->jumlah_pembayaran = $jumlah_pembayaran;
         $pembayaran->tgl_pembayaran = now();
         $pembayaran->status = 'paid';
-        $pembayaran->save(); // pas masukin pembayarannya ini masuk ke database dan statusnya defaultnya unpaid
+        $pembayaran->save(); // pas masukin pembayarannya ini masuk ke database dan statusnya defaultnya paid
 
         Config::$serverKey = config('midtrans.server_key'); // ambil server key dari midtrans
         Config::$clientKey = config('midtrans.client_key'); // ambil client key dari midtrans
@@ -122,8 +122,21 @@ class PembayaranController extends Controller
                 'custom_field2' => $custom_field['id_antrian'],
         ]);
 
+        $result = [
+            "payment_token" => $payment_token,
+            "pelanggan" => $pelanggan,
+            "antrian" => $antrian,
+            "jumlah_pembayaran",
+            "nama" => $nama,
+            "email" => $email,
+            "no_telp" => $no_telp,
+            "pembayaran" => $pembayaran
+        ];
+
+        $compact = compact('result');
+
         // redirect ke view detail pembayaran atau checkout
         // kalau misalkan udah masukin form pembayarannya langsung ke halaman detail pembayarannya
-        return view('dashboardpelanggan.pembayaran.checkout', compact('payment_token', 'pelanggan', 'antrian', 'jumlah_pembayaran', 'nama', 'email', 'no_telp', 'pembayaran'));
+        return view('dashboardpelanggan.pembayaran.checkout', $compact);
     }
 }

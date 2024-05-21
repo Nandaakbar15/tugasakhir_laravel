@@ -11,7 +11,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Pelanggan;
 use App\Model\Pembayaran;
+use App\Models\Game_request;
 use App\Models\Pembayaran as ModelsPembayaran;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -27,6 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'username',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -67,5 +70,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function pembayaran()
     {
         return $this->hasMany(ModelsPembayaran::class, 'id_pelanggan');
+    }
+
+    public function gameList(): BelongsToMany
+    {
+        return $this->belongsToMany(Game_request::class, 'game_request_user', 'id_user', 'id_game_request');
     }
 }

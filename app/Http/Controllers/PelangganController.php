@@ -12,6 +12,7 @@ use App\Models\ProfilToko;
 use App\Models\Notifikasi;
 use App\Notifications\SendNotification;
 use App\Models\Teknisi;
+use Illuminate\Support\Facades\Auth;
 
 class PelangganController extends Controller
 {
@@ -55,6 +56,7 @@ class PelangganController extends Controller
 
         $teknisi = Teknisi::first();
 
+        $recipientEmail = 'gplaystation021@gmail.com';
         // $isi_notifikasi = "Kamu dapat notifikasi dari pelanggan!\n";
         $isi_notifikasi = "\nNama Pelanggan: " . $request->nama_pelanggan . "\n";
         $isi_notifikasi .= "\nAlamat: " . $request->alamat . "\n";
@@ -91,7 +93,7 @@ class PelangganController extends Controller
             'id_konsol' => $konsol->id_konsol,
         ]);
 
-        $pelanggan->notify(new SendNotification($notifikasi));
+        $pelanggan->notify(new SendNotification($notifikasi, $recipientEmail));
         // $user->notify(new SendNotification($isi_notifikasi));
 
         return redirect('/pelanggan/dashboardpelanggan')->with('success', 'Data kamu sudah di kirim ke teknisi!');
@@ -155,8 +157,7 @@ class PelangganController extends Controller
     public function statusservis() // melihat status servis
     {
          // Retrieve the currently authenticated user
-        $userId = auth()->id();
-        $user = User::find($userId);
+        $user = auth()->user();
 
         // Check if the user exists and is a pelanggan
         if ($user && $user->role === 'pelanggan') {

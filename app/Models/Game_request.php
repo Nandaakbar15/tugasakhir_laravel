@@ -16,4 +16,9 @@ class Game_request extends Model
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'game_lists');
+    }
 }
