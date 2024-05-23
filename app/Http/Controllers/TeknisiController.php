@@ -12,6 +12,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Notifications\SendMessageTechinian;
+use Illuminate\Support\Facades\Notification;
 
 class TeknisiController extends Controller
 {
@@ -133,4 +135,39 @@ class TeknisiController extends Controller
         $pdf = PDF::loadview('dashboard.datalaporanservis.laporanservis', $data);
         return $pdf->download('laporan_servis.pdf');
     }
+
+    public function sendMessage() // view kirim pesan ke pelanggan
+    {
+        $username = Auth::user()->name;
+        return view("dashboard.sendMessage.viewsendmessage", [
+            "username" => $username
+        ]);
+    }
+
+    public function sendNotification(Request $request) // logika kirim pesan ke pelanggan
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        $pelanggan = Pelanggan::where('email', $request->email)->first();
+
+        if($pelanggan) {
+            $notificationdetails = [
+                'greeting' => 'Dear customer yang bernama, ' . $pelanggan->nama_pelanggan,
+                'body' => $request->message,
+                'thanks' => 'Terimakasih sudah menggunakan layanan kami!',
+            ];
+
+            Notification::route('mail', $pelanggan->email)
+                         ->notify(new SendMessageTechinian($notificationdetails));
+
+            return redirect("/dashboard")->with("success", "Pesan terkirim kepada pelanggan!");
+        } else {
+            return redirect()->back()->with('error', 'Pelanggan dengan email tersebut tidak ada!');
+        }
+    }
+
+
 }

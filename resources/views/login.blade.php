@@ -38,7 +38,7 @@
 
 					<div class="wrap-input100 validate-input">
                         <label for="email">Email</label>
-						<input class="input100 @error('email') is-invalid @enderror" type="text" name="email" id="email" required value="{{ old('email') }}">
+						<input class="input100 @error('email') is-invalid @enderror" type="email" name="email" id="email" required value="{{ old('email') }}">
 						<span class="focus-input100"></span>
                         @error('email')
                             <div class="is-invalid">

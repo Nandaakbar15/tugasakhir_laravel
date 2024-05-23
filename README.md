@@ -35,6 +35,10 @@ Dari Sisi Teknisi :
 -   Menyempurnakan fitur pembayaran ✅
 -   Memperbaiki bug dan error pada saat membuka halaman status servis di dashboard pelanggan ✅
 
+## FITUR YANG DI TAMBAHKAN
+
+-   Mengirim notifikasi dari teknisi ke pelanggan ✅
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).

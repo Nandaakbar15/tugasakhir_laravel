@@ -6,22 +6,18 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Models\Notifikasi;
 
-class SendNotification extends Notification
+class SendMessageTechinian extends Notification
 {
     use Queueable;
 
-    protected $notifikasi;
-    protected $recipientEmail;
-
+    private $details;
     /**
      * Create a new notification instance.
      */
-    public function __construct($notifikasi, $recipientEmail)
+    public function __construct($details)
     {
-        $this->notifikasi = $notifikasi;
-        $this->recipientEmail = $recipientEmail;
+        $this->details = $details;
     }
 
     /**
@@ -40,9 +36,8 @@ class SendNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('Anda mendapatkan Notifikasi dari pelanggan!')
-                    ->line($this->notifikasi->pelanggan->email)
-                    ->line($this->notifikasi->isi_notifikasi)
+                    ->greeting($this->details['greeting'])
+                    ->line($this->details['body'])
                     ->line('Thank you for using our application!');
     }
 

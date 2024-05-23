@@ -87,7 +87,8 @@ Route::middleware(['web','auth', 'checkRole:admin'])->group(function() {
     Route::post('/tambahTeknisi', 'App\Http\Controllers\TeknisiController@store'); // logika tambah teknisi
     Route::get('/ubah_teknisi/{teknisi}', 'App\Http\Controllers\TeknisiController@edit'); // view ubah teknisi
     Route::put('/ubah_teknisi/{teknisi}', 'App\Http\Controllers\TeknisiController@update'); // logika ubah teknisi
-    Route::get('/kirim-pesan', 'App\Http\Controllers\WhatsAppController@sendMessage'); // kirim pemberitahuan kepada pelanggan proses servis
+    Route::get('/kirim-pesan', 'App\Http\Controllers\TeknisiController@sendMessage'); // view kirim pemberitahuan kepada pelanggan proses servis
+    Route::post('/kirim-notifikasi', 'App\Http\Controllers\TeknisiController@sendNotification'); // logika kirim pemberitahuan
     Route::get('/pesanselesai', 'App\Http\Controllers\WhatsAppController@pesanselesai'); // kirim pemberitahuan kepada pelanggan servis selesai
     Route::get('/exportexcel', 'App\Http\Controllers\TeknisiController@exportExcel'); // export excel
     Route::get('/exportpdf', 'App\Http\Controllers\TeknisiController@exportpdf'); // export pdf
