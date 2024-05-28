@@ -31,8 +31,8 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Form Pembayaran</h5>
+                <p class="card-text">Silahkan isi form berikut</p>
                     @foreach ($pelanggan as $d)
-                    <p class="card-text">Silahkan isi form berikut</p>
                     <form action="/pelanggan/bayar" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $d->id_pelanggan }}" name="id_pelanggan">

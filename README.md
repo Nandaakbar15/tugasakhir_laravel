@@ -34,6 +34,7 @@ Dari Sisi Teknisi :
 -   Implementasi notifikasi email dari pelanggan ke teknisi ✅
 -   Menyempurnakan fitur pembayaran ✅
 -   Memperbaiki bug dan error pada saat membuka halaman status servis di dashboard pelanggan ✅
+-   Memperbaiki bug saat mengisi data dan mengirimnya ke teknisi/admin ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

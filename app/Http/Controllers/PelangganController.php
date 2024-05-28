@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ProfilToko;
 use App\Models\Notifikasi;
-use App\Notifications\SendNotification;
+// use App\Notifications\SendNotification;
 use App\Models\Teknisi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -59,17 +59,33 @@ class PelangganController extends Controller
         $teknisi = Teknisi::first();
 
         $recipientEmail = 'gplaystation021@gmail.com';
-        // $isi_notifikasi = "Kamu dapat notifikasi dari pelanggan!\n";
-        $notificationContent = [
+
+        // $gameList = session()->get('game', []); // ambil session game
+
+        // $gameListContent = []; // variabel dengan array kosong yang nantinya buat nampung data game
+
+        // foreach ($gameList as $game) { // looping list game
+        //     $gameListContent[] = [ // data2 game yang di fetch
+        //         "id_game" => $game["id_game"],
+        //         "nama_game" => $game["nama_game"],
+        //         "developer" => $game["developer"],
+        //         "tgl_rilis" => $game["tgl_rilis"],
+        //         "platform" => $game["platform"],
+        //         "foto" => $game["foto"]
+        //     ];
+        // }
+
+        $notificationContent = [ // isi notifikasi
             "nama_pelanggan" => $request->nama_pelanggan,
             "alamat" => $request->alamat,
             "email" => $request->email,
             "no_telp" => $request->no_telp,
             "nama_konsol" =>  $request->nama_konsol,
-            "kendala_kerusakan" => $request->kendala_kerusakan
+            "kendala_kerusakan" => $request->kendala_kerusakan,
+            // "game_list" => $gameListContent
         ];
 
-        Notifikasi::create([
+        Notifikasi::create([ // nambahin data notifikasi ke database
             'id_pelanggan' => $pelanggan->id_pelanggan,
             'id_teknisi' => $teknisi->id_teknisi,
             'isi_notifikasi' => json_encode($notificationContent)
@@ -97,7 +113,7 @@ class PelangganController extends Controller
             'id_konsol' => $konsol->id_konsol,
         ]);
 
-        Mail::to($recipientEmail)->send(new CustomerNotificationMail($notificationContent));
+        Mail::to($recipientEmail)->send(new CustomerNotificationMail($notificationContent)); // kirim notifikasi ke teknisi
         // $user->notify(new SendNotification($isi_notifikasi));
 
         return redirect('/pelanggan/dashboardpelanggan')->with('success', 'Data kamu sudah di kirim ke teknisi!');

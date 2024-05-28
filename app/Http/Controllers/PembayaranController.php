@@ -21,9 +21,11 @@ class PembayaranController extends Controller
 
         $pelanggan = Pelanggan::all();
         $antrian = Antrian::all();
+        $pembayaran = Pembayaran::all();
         return view('dashboardpelanggan.pembayaran.viewpembayaran', [
             // 'payments' => $payments,
             'pelanggan' => $pelanggan,
+            'pembayaran' => $pembayaran,
             'antrian' => $antrian,
         ]);
 

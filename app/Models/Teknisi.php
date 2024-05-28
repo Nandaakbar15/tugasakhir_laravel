@@ -21,4 +21,13 @@ class Teknisi extends Model
     {
         return $this->belongsTo(ProfilToko::class, "id_toko");
     }
+
+    public function scopeFilter($query)
+    {
+        if(request('cari_user')) {
+            $query->where('nama_teknisi', 'like', '%' . request('cari_user') . '%');
+        }
+
+        return $query;
+    }
 }

@@ -24,26 +24,6 @@ class CustomerNotificationMail extends Mailable
     }
 
     /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Customer Notification Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
@@ -55,7 +35,7 @@ class CustomerNotificationMail extends Mailable
 
     public function build()
     {
-        return $this->subject('New Service Request Notification')
+        return $this->subject('Anda mendapatkan notifikasi dari pelanggan')
                     ->view('emails.notification');
     }
 }

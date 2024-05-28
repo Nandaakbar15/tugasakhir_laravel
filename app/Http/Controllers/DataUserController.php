@@ -25,6 +25,28 @@ class DataUserController extends Controller
         ]);
     }
 
+    public function cariUser(Request $request) // cari user teknisi atau pelanggan
+    {
+        $username = Auth::user()->name;
+        $cariUser = $request->input('cari_user');
+
+        $pelanggan = Pelanggan::query() // query mencari data pelanggan
+                     ->where('nama_pelanggan', 'like', '%' . $cariUser . '%')
+                     ->orWhere('email', 'like', '%' . $cariUser . '%')
+                     ->get();
+
+        $teknisi  = Teknisi::query() // query mencari data teknisi
+                    ->where('nama_teknisi', 'like', '%' . $cariUser . '%')
+                    ->orWhere('alamat', 'like', '%' . $cariUser . '%')
+                    ->get();
+
+        return view('dashboard.datauser.viewdatauser', [
+            'username' => $username,
+            'pelanggan' => $pelanggan,
+            'teknisi' => $teknisi
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

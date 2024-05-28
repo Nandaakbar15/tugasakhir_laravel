@@ -68,6 +68,7 @@ Route::middleware(['web','auth', 'checkRole:admin'])->group(function() {
     Route::get('/ubahstatus_servis/{antrian}', 'App\Http\Controllers\StatusServisController@edit'); // view ubah status
     Route::put('/ubahstatus_servis/{antrian}', 'App\Http\Controllers\StatusServisController@update'); // logika ubah status
     Route::get('/datauser', 'App\Http\Controllers\DataUserController@index'); // view data user
+    Route::post('/cariUser', 'App\Http\Controllers\DataUserController@cariUser'); // filter cari data user
     Route::get('/ubahdata_pelanggan/{pelanggan}', 'App\Http\Controllers\PelangganController@edit'); // view ubah data pelanggan
     Route::put('/ubahdata_pelanggan/{pelanggan}', 'App\Http\Controllers\PelangganController@update'); // ubah data pelanggan
     Route::delete('/hapusPelanggan', 'App\Http\Controllers\PelangganController@destroy'); // hapus data pelanggan
