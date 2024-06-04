@@ -124,21 +124,10 @@ class PembayaranController extends Controller
                 'custom_field2' => $custom_field['id_antrian'],
         ]);
 
-        $result = [
-            "payment_token" => $payment_token,
-            "pelanggan" => $pelanggan,
-            "antrian" => $antrian,
-            "jumlah_pembayaran",
-            "nama" => $nama,
-            "email" => $email,
-            "no_telp" => $no_telp,
-            "pembayaran" => $pembayaran
-        ];
 
-        $compact = compact('result');
 
         // redirect ke view detail pembayaran atau checkout
         // kalau misalkan udah masukin form pembayarannya langsung ke halaman detail pembayarannya
-        return view('dashboardpelanggan.pembayaran.checkout', $compact);
+        return view('dashboardpelanggan.pembayaran.checkout', compact('payment_token', 'pelanggan', 'antrian', 'pembayaran', 'jumlah_pembayaran'));
     }
 }

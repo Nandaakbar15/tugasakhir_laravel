@@ -25,6 +25,11 @@ class Antrian extends Model
         });
     }
 
+    public function pelanggan()
+    {
+        return $this->belongsTo(User::class, 'id_pelanggan');
+    }
+
     public function konsol()
     {
         return $this->belongsTo(Konsol::class, 'id_konsol');

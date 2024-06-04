@@ -15,6 +15,7 @@ use App\Models\Notifikasi;
 use App\Models\Teknisi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class PelangganController extends Controller
 {
@@ -176,25 +177,9 @@ class PelangganController extends Controller
 
     public function statusservis() // melihat status servis
     {
-         // Retrieve the currently authenticated user
-        $user = auth()->user();
-
-        // Check if the user exists and is a pelanggan
-        if ($user && $user->role === 'pelanggan') {
-            // Retrieve the Antrian records associated with the user
-            $antrian = $user->antrian;
-
-            // If you want to eager load related Konsol data, you can do so here
-            $antrian = $antrian->load('konsol');
-
-            // Pass the user and Antrian records to the view
-            return view('dashboardpelanggan.status_servis.viewstatus_servis', [
-                'user' => $user,
-                'antrian' => $antrian
-            ]);
-        } else {
-            // Handle the case where the user is not a pelanggan
-            return redirect()->back()->with('error', 'Unauthorized access');
-        }
+       $antrian = Antrian::with('user', 'konsol')->get();
+       return view('dashboardpelanggan.status_servis.viewstatus_servis', [
+           'antrian' => $antrian
+       ]);
     }
 }

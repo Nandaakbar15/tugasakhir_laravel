@@ -35,10 +35,13 @@ Dari Sisi Teknisi :
 -   Menyempurnakan fitur pembayaran ✅
 -   Memperbaiki bug dan error pada saat membuka halaman status servis di dashboard pelanggan ✅
 -   Memperbaiki bug saat mengisi data dan mengirimnya ke teknisi/admin ✅
+-   Memperbaiki bug fitur pembayaran ✅
+-   Memperbaiki halaman status servis dan datanya muncul semua ✅
 
 ## FITUR YANG DI TAMBAHKAN
 
 -   Mengirim notifikasi dari teknisi ke pelanggan ✅
+-   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
 
 ## Contributing
 
