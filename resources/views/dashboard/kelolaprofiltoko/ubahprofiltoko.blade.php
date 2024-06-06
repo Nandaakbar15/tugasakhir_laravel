@@ -42,6 +42,7 @@
         <button type="submit" class="btn btn-primary">ubah!</button>
         </form>
     </div>
+    <a href="/kelolaprofiltoko" class="btn btn-primary">Kembali</a>
     <script text="text/javascript">
         function previewImage() {
             const foto = document.querySelector('#foto');

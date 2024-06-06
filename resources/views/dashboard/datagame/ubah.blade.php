@@ -6,9 +6,10 @@
         <input type="hidden" name="gambarLama" value="{{ $game_request->foto }}">
         <form action="/ubahgame/{{ $game_request->id_game }}" enctype="multipart/form-data" method="POST">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="nama_game" class="form-label">Nama Game</label>
-                <input type="text" class="form-control @error('nama_game') is-invalid @enderror" id="nama_game" autofocus value="{{ old($game_request->nama_game,'nama_game') }}">
+                <input type="text" class="form-control @error('nama_game') is-invalid @enderror" id="nama_game" autofocus value="{{ old('nama_game', $game_request->nama_game) }}">
 
                 @error('nama_game')
                     <div class="is-invalid">
@@ -18,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="tgl_rilis" class="form-label">Tanggal Rilis</label>
-                <input type="date" class="form-control @error('tgl_rilis') is-invalid @enderror" id="tgl_rilis" autofocus value="{{ old($game_request->tgl_rilis, 'tgl_rilis') }}">
+                <input type="date" class="form-control @error('tgl_rilis') is-invalid @enderror" id="tgl_rilis" autofocus value="{{ old('tgl_rilis', $game_request->tgl_rilis) }}">
 
                 @error('tgl_rilis')
                     <div class="is-invalid">
@@ -28,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="platform">Platform</label>
-                <input type="text" class="form-control @error('platform') is-invalid @enderror" id="platform" required value="{{ old($game_request->platform, 'platform') }}">
+                <input type="text" class="form-control @error('platform') is-invalid @enderror" id="platform" required value="{{ old('platform', $game_request->platform) }}">
 
                 @error('platform')
                     <div class="is-invalid">
@@ -38,7 +39,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="developer">Developer</label>
-                <input type="text" class="form-control @error('developer') is-invalid @enderror" id="developer" required value="{{ old($game_request->developer, 'developer') }}">
+                <input type="text" class="form-control @error('developer') is-invalid @enderror" id="developer" required value="{{ old('developer', $game_request->developer) }}">
 
                 @error('developer')
                     {{ $message }}
@@ -59,7 +60,7 @@
                     @enderror
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">ubah!</button>
+            <button type="submit" class="btn btn-primary mb-4">ubah!</button>
         </form>
     </div>
 
@@ -78,5 +79,5 @@
             }
         }
     </script>
-    <a href="/dashboard" class="btn btn-primary">Kembali</a>
+    <a href="/datagame" class="btn btn-primary">Kembali</a>
 @endsection

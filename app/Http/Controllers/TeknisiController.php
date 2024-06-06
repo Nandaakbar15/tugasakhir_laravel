@@ -64,8 +64,10 @@ class TeknisiController extends Controller
      */
     public function edit(Teknisi $teknisi)
     {
+        $username = Auth::user()->name;
         return view('dashboard.datauser.ubahDataTeknisi', [
-            'teknisi' => $teknisi
+            'teknisi' => $teknisi,
+            'username' => $username
         ]);
     }
 

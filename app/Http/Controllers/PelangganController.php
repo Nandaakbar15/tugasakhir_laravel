@@ -133,8 +133,10 @@ class PelangganController extends Controller
      */
     public function edit(Pelanggan $pelanggan) // view untuk edit data pelanggan
     {
+        $username = Auth::user()->name;
         return view('dashboard.datauser.ubahDataPelanggan', [
-            'pelanggan' => $pelanggan
+            'pelanggan' => $pelanggan,
+            'username' => $username
         ]);
     }
 

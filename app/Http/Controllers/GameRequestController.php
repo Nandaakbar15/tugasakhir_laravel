@@ -14,7 +14,7 @@ class GameRequestController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() // view data game
     {
         $username = Auth::user()->name;
         $game = Game_request::all();
@@ -27,7 +27,7 @@ class GameRequestController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() // view tambah data game
     {
         $username = Auth::user()->name;
         return view('dashboard.datagame.tambah', [
@@ -38,7 +38,7 @@ class GameRequestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) // tambah data game
     {
         $user = auth()->user();
 
@@ -77,17 +77,19 @@ class GameRequestController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game_request $game_request)
+    public function edit(Game_request $game_request) // view edit data game
     {
+        $username = Auth::user()->name;
         return view('dashboard.datagame.ubah', [
-            'game_request' => $game_request
+            'game_request' => $game_request,
+            'username' => $username
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Game_request $game_request)
+    public function update(Request $request, Game_request $game_request) // update data game
     {
         $validate = $request->validate([
             'nama_game' => 'required|max:50',
@@ -117,13 +119,13 @@ class GameRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game_request $game_request)
+    public function destroy(Game_request $game_request) // hapus data game
     {
         $game_request->delete();
         return redirect('/dashboard')->with('success', 'Data Game berhasil di hapus!');
     }
 
-    public function carigame()
+    public function carigame() // cari data game
     {
         $username = Auth::user()->name;
         $game = Game_request::latest()->filter()->get();

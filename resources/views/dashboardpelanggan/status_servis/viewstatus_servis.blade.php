@@ -17,6 +17,7 @@
                         <th>No. Antrian</th>
                         <th>ID Antrian</th>
                         <th>ID Konsol</th>
+                        <th>ID Pelanggan</th>
                         <th>Foto Kondisi Konsol</th>
                         <th>Tanggal Servis</th>
                         <th>Status Servis</th>
@@ -28,6 +29,7 @@
                         <td>{{ $data->no_antrian }}</td>
                         <td>{{ $data->id_antrian }}</td>
                         <td>{{ $data->id_konsol }}</td>
+                        <td>{{ $data->id_pelanggan }}</td>
                         <td><img src="{{ asset($data->konsol->foto) }}" width="100px" height="90px"></td>
                         <td>{{ $data->tgl_servis }}</td>
                         <td>{{ $data->status_servis }}</td>

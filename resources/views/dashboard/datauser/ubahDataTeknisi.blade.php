@@ -37,5 +37,5 @@
             <button type="submit" class="btn btn-primary">Ubah!</button>
         </form>
     </div>
-    <a href="/dashboard" class="btn btn-primary">Kembali</a>
+    <a href="/datauser" class="btn btn-primary">Kembali</a>
 @endsection

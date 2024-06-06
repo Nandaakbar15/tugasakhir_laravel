@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\DataUserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/testApi', function() {
+    return response()->json([
+        'message' => 'Hello World'
+    ], 200);
 });
+
+Route::get('/datauser', 'App\Http\Controllers\Api\DataUserApiController@index');
+
+// Route::post('/login', LoginController::class, ['login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+
+});
+
+
