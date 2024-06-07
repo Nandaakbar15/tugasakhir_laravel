@@ -15,8 +15,12 @@ class DataUserApiController extends Controller
         $teknisi = Teknisi::all();
 
         $data = [
-            'pelanggan' => $pelanggan,
-            'teknisi' => $teknisi
+            'data Pelanggan' => [
+                'pelanggan' => $pelanggan
+            ],
+            'data teknisi' => [
+                'teknisi' => $teknisi
+            ]
         ];
 
         return response()->json([
