@@ -44,6 +44,7 @@ Dari Sisi Teknisi :
 
 -   Mengirim notifikasi dari teknisi ke pelanggan ✅
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
+-   Menambahkan API antara Pelanggan dan teknisi
 
 ## Contributing
 

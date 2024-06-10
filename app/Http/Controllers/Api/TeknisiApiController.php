@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Teknisi;
 use App\Models\Pelanggan;
 use App\Models\Antrian;
+use App\Models\ProfilToko;
 use Illuminate\Support\Carbon;
 
 class TeknisiApiController extends Controller
@@ -17,6 +18,19 @@ class TeknisiApiController extends Controller
         $data = [
             'teknisi' => $teknisi
         ];
+        return response()->json([
+            'statusCode' => 200,
+            'data' => $data
+        ]);
+    }
+
+    public function profilToko()
+    {
+        $profil_toko = ProfilToko::all();
+        $data = [
+            $profil_toko
+        ];
+
         return response()->json([
             'statusCode' => 200,
             'data' => $data

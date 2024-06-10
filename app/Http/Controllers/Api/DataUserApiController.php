@@ -28,4 +28,29 @@ class DataUserApiController extends Controller
             'data' => $data
         ]);
     }
+
+    public function cariUser(Request $request) // cari user teknisi atau pelanggan
+    {
+        $cariUser = $request->input('cari_user');
+
+        $pelanggan = Pelanggan::query() // query mencari data pelanggan
+                     ->where('nama_pelanggan', 'like', '%' . $cariUser . '%')
+                     ->orWhere('email', 'like', '%' . $cariUser . '%')
+                     ->get();
+
+        $teknisi  = Teknisi::query() // query mencari data teknisi
+                    ->where('nama_teknisi', 'like', '%' . $cariUser . '%')
+                    ->orWhere('alamat', 'like', '%' . $cariUser . '%')
+                    ->get();
+
+        $data = [
+            $pelanggan,
+            $teknisi
+        ];
+
+        return response()->json([
+            'statusCode' => 200,
+            'data' => $data
+        ]);
+    }
 }

@@ -52,14 +52,6 @@ class TeknisiController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Teknisi $teknisi)
-    {
-
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Teknisi $teknisi)
@@ -94,7 +86,8 @@ class TeknisiController extends Controller
      */
     public function destroy(Teknisi $teknisi)
     {
-        //
+        $teknisi = Teknisi::where('id_teknisi', $teknisi->id_teknisi)->delete();
+        return redirect('/dashboard')->with('success', 'Data Teknisi Berhasil di hapus!');
     }
 
     public function datalaporan_servis() // view data laporan servis

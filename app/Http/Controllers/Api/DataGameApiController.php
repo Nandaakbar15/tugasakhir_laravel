@@ -54,6 +54,19 @@ class DataGameApiController extends Controller
         ]);
     }
 
+    public function show(Game_request $game_request)
+    {
+        $game = Game_request::find($game_request->id_game);
+        $data = [
+            $game
+        ];
+
+        return response()->json([
+            'statusCode' => 200,
+            'data' => $data
+        ]);
+    }
+
     public function update(Request $request, Game_request $game_request) // update data game
     {
         $validate = $request->validate([
