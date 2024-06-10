@@ -66,7 +66,7 @@
         window.snap.pay('{{ $payment_token }}', {
                 onSuccess: function (result) {
                     /* You may add your own implementation here */
-                    alert("payment success!");
+                    alert("pembayaran berhasil!!!!");
                     console.log(result);
                     document.location.href = "/pelanggan/dashboardpelanggan";
                 },
@@ -77,7 +77,7 @@
                 },
                 onError: function (result) {
                     /* You may add your own implementation here */
-                    alert("payment failed!");
+                    alert("pembayaran gagal!");
                     console.log(result);
                 },
                 onClose: function () {

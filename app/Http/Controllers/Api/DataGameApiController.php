@@ -14,7 +14,7 @@ class DataGameApiController extends Controller
     {
         $game = Game_request::all();
         $data = [
-            'game' => $game
+            $game
         ];
         return response()->json([
             'statusCode' => 200,

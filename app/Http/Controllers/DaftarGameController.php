@@ -19,7 +19,7 @@ class DaftarGameController extends Controller
 
     public function tambahGame(Request $request) // logika untuk tombol tambah ke list
     {
-        $user = User::find(Auth::user()->gameList);
+        $user = User::find(Auth::user()->gameLists);
 
         $idGame = $request->input("id_game");
 
@@ -28,13 +28,13 @@ class DaftarGameController extends Controller
             return redirect()->with("error", "Game tidak tersedia atau tidak ditemukan!");
         }
 
-        // Check if the game is already in the user's list
-        if ($user->gameList()->where('game_request_id', $idGame)->exists()) {
-            return redirect('pelanggan/servis')->with("error", "Game sudah ada di dalam list!");
-        }
+        // // Check if the game is already in the user's list
+        // if ($user->gameLists()->where('game_request_id', $idGame)->exists()) {
+        //     return redirect('pelanggan/servis')->with("error", "Game sudah ada di dalam list!");
+        // }
 
-        // Add game to the user's list
-        $user->gameList()->attach($idGame);
+        // // Add game to the user's list
+        // $user->gameLists()->attach($idGame);
 
         // Tambah game ke list
         $gameList = session()->get('game', []);

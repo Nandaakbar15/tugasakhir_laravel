@@ -61,20 +61,20 @@ class PelangganController extends Controller
 
         $recipientEmail = 'gplaystation021@gmail.com';
 
-        // $gameList = session()->get('game', []); // ambil session game
+        $gameList = session()->get('game', []); // ambil session game
 
-        // $gameListContent = []; // variabel dengan array kosong yang nantinya buat nampung data game
+        $gameListContent = []; // variabel dengan array kosong yang nantinya buat nampung data game
 
-        // foreach ($gameList as $game) { // looping list game
-        //     $gameListContent[] = [ // data2 game yang di fetch
-        //         "id_game" => $game["id_game"],
-        //         "nama_game" => $game["nama_game"],
-        //         "developer" => $game["developer"],
-        //         "tgl_rilis" => $game["tgl_rilis"],
-        //         "platform" => $game["platform"],
-        //         "foto" => $game["foto"]
-        //     ];
-        // }
+        foreach ($gameList as $game) { // looping list game
+            $gameListContent[] = [ // data2 game yang di fetch
+                "id_game" => $game["id_game"],
+                "nama_game" => $game["nama_game"],
+                "developer" => $game["developer"],
+                "tgl_rilis" => $game["tgl_rilis"],
+                "platform" => $game["platform"],
+                "foto" => $game["foto"]
+            ];
+        }
 
         $notificationContent = [ // isi notifikasi
             "nama_pelanggan" => $request->nama_pelanggan,
@@ -83,7 +83,7 @@ class PelangganController extends Controller
             "no_telp" => $request->no_telp,
             "nama_konsol" =>  $request->nama_konsol,
             "kendala_kerusakan" => $request->kendala_kerusakan,
-            // "game_list" => $gameListContent
+            "game_list" => $gameListContent
         ];
 
         Notifikasi::create([ // nambahin data notifikasi ke database

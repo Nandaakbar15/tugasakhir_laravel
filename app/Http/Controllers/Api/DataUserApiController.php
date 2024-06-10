@@ -16,10 +16,10 @@ class DataUserApiController extends Controller
 
         $data = [
             'data Pelanggan' => [
-                'pelanggan' => $pelanggan
+                $pelanggan
             ],
             'data teknisi' => [
-                'teknisi' => $teknisi
+                $teknisi
             ]
         ];
 

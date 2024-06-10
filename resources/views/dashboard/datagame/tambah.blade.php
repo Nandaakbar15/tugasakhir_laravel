@@ -54,6 +54,6 @@
             <button type="submit" class="btn btn-primary">tambah!</button>
         </form>
         <div class="mb-3"></div>
-        <a href="/dashboard" class="btn btn-primary">Kembali</a>
+        <a href="/datagame" class="btn btn-primary">Kembali</a>
     </div>
 @endsection

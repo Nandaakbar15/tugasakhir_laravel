@@ -28,12 +28,15 @@ Route::get('/testApi', function() {
 
 Route::post('/login', 'App\Http\Controllers\Api\LoginApiController@login');
 
+Route::get('/datagame', 'App\Http\Controllers\Api\DataGameApiController@index');
+Route::get('/datauser', 'App\Http\Controllers\Api\DataUserApiController@index');
+
 Route::middleware('auth:sanctum')->group(function () {
 
     // route API Admin/Teknisi
     Route::prefix('admin')->middleware('checkRole:admin')->group(function() {
-        Route::get('/datauser', 'App\Http\Controllers\Api\DataUserApiController@index');
-        Route::get('/datagame', 'App\Http\Controllers\Api\DataGameApiController@index');
+
+
         Route::get('/status_pembayaran', 'App\Http\Controllers\Api\StatusPembayaranApiController@index');
         Route::get('/status_servis', 'App\Http\Controllers\Api\StatusServisApiController@index');
         Route::put('/ubahstatus_servis/{antrian}', 'App\Http\Controllers\Api\StatusServisApiController@update'); // logika ubah status

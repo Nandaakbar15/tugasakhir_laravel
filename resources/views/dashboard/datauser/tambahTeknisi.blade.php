@@ -41,5 +41,5 @@
             </form>
         </div>
     </div>
-    <a href="/dashboard" class="btn btn-primary">Kembali</a>
+    <a href="/datauser" class="btn btn-primary">Kembali</a>
 @endsection

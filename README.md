@@ -37,6 +37,8 @@ Dari Sisi Teknisi :
 -   Memperbaiki bug saat mengisi data dan mengirimnya ke teknisi/admin ✅
 -   Memperbaiki bug fitur pembayaran ✅
 -   Memperbaiki halaman status servis dan datanya muncul semua ✅
+-   List game muncul di notifikasi email teknisi ✅
+-   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

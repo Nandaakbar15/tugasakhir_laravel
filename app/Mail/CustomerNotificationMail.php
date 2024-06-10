@@ -35,7 +35,7 @@ class CustomerNotificationMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Anda mendapatkan notifikasi dari pelanggan')
-                    ->view('emails.notification');
+        return $this->view('emails.notification')
+                    ->with('notificationContent', $this->notificationContent);
     }
 }
