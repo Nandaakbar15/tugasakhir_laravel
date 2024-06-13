@@ -31,21 +31,22 @@ class DataUserApiController extends Controller
 
     public function cariUser(Request $request) // cari user teknisi atau pelanggan
     {
-        $cariUser = $request->input('cari_user');
+        $query1 = Pelanggan::query();
+        $query2 = Teknisi::query();
 
-        $pelanggan = Pelanggan::query() // query mencari data pelanggan
-                     ->where('nama_pelanggan', 'like', '%' . $cariUser . '%')
-                     ->orWhere('email', 'like', '%' . $cariUser . '%')
-                     ->get();
+        if($request->has('nama_pelanggan') OR $request->has('email')) {
+            $query1->where('nama_pelanggan', 'like', '%' . $request->get('nama_pelanggan') . '%')
+                    ->orWhere('email', 'like', '%' . $request->get('email') . '%');
+        }
 
-        $teknisi  = Teknisi::query() // query mencari data teknisi
-                    ->where('nama_teknisi', 'like', '%' . $cariUser . '%')
-                    ->orWhere('alamat', 'like', '%' . $cariUser . '%')
-                    ->get();
+        if($request->has('nama_teknisi') OR $request->has('alamat')) {
+            $query2->where('nama_teknisi', 'like', '%' . $request->get('nama_teknisi') . '%')
+                    ->orWhere('alamat', 'like', '%' . $request->get('alamat') . '%');
+        }
 
         $data = [
-            $pelanggan,
-            $teknisi
+            $query1,
+            $query2
         ];
 
         return response()->json([

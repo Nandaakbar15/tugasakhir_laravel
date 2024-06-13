@@ -18,7 +18,7 @@ Dari Sisi pelanggan:
 
 Dari Sisi Teknisi :
 
--   Dapat notifikasi emai dari pelanggan dan isinya berupa data pelanggan ⌛ (Nanti di sempurnakan)
+-   Dapat notifikasi emai dari pelanggan dan isinya berupa data pelanggan ✅ (Sudah di sempurnakan)
 -   Bisa CRUD Data User ✅
 -   Bisa lihat status pembayaran atau transaksi yang masuk dari pelanggan ✅
 -   Bisa lihat laporan servis dan bisa export data ke excel atau PDF ✅
@@ -39,12 +39,14 @@ Dari Sisi Teknisi :
 -   Memperbaiki halaman status servis dan datanya muncul semua ✅
 -   List game muncul di notifikasi email teknisi ✅
 -   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
+-   Memperbaiki error di endpoint API cari data game
 
 ## FITUR YANG DI TAMBAHKAN
 
 -   Mengirim notifikasi dari teknisi ke pelanggan ✅
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
--   Menambahkan API antara Pelanggan dan teknisi
+-   Menambahkan API antara Pelanggan dan teknisi ✅
+-   Menambahkan endpoint cari data game ✅
 
 ## Contributing
 

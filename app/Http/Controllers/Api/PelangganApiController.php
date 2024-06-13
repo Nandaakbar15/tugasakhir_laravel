@@ -11,6 +11,7 @@ use App\Models\Antrian;
 use App\Models\Kendala;
 use App\Models\Konsol;
 use App\Models\Teknisi;
+use App\Models\ProfilToko;
 use App\Models\Notifikasi;
 
 
@@ -119,6 +120,20 @@ class PelangganApiController extends Controller
         $data = [
             'antrian' => $antrian
         ];
+        return response()->json([
+            'statusCode' => 200,
+            'data' => $data
+        ]);
+    }
+
+    public function profil_toko()
+    {
+        $profilToko = ProfilToko::all();
+
+        $data = [
+            $profilToko
+        ];
+
         return response()->json([
             'statusCode' => 200,
             'data' => $data

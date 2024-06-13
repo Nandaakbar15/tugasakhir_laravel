@@ -9,6 +9,7 @@ use App\Models\Pelanggan;
 use App\Models\Antrian;
 use App\Models\ProfilToko;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class TeknisiApiController extends Controller
 {
@@ -83,6 +84,40 @@ class TeknisiApiController extends Controller
         return response()->json([
             'statusCode' => 200,
             'data' => $data
+        ]);
+    }
+
+    public function editprofilToko(Request $request, ProfilToko $profiltoko_request)
+    {
+        $validatedData = $request->validate([
+            'nama_toko' => 'required|max:50',
+            'deskripsi' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Change 'required' to 'nullable' for the 'foto' field
+        ]);
+
+        // Mengehandle file jika upload file atau gambar baru
+        if ($request->hasFile('foto')) {
+            // Hapus foto jika masih ada
+            if ($profiltoko_request->foto) {
+            Storage::delete($profiltoko_request->foto);
+            }
+
+            // Upload gambar baru
+            $file = $request->file('foto');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('images', $fileName, 'public');
+            $validatedData['foto'] = '/storage/' . $path;
+        } else {
+            // Jika tidak ada file yang di upload, simpan di folder yang sama
+            $validatedData['foto'] = $profiltoko_request->foto;
+        }
+
+        // Update data profil toko ke database
+        $profiltoko_request->update($validatedData);
+
+        return response()->json([
+            'statusCode' => 200,
+            'message' => 'Profil Toko berhasil diubah!'
         ]);
     }
 }

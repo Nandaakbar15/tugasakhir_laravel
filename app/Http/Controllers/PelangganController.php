@@ -121,14 +121,6 @@ class PelangganController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Pelanggan $pelanggan)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Pelanggan $pelanggan) // view untuk edit data pelanggan
@@ -162,9 +154,10 @@ class PelangganController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pelanggan $pelanggan)
+    public function destroy(Pelanggan $pelanggan) // hapus data pelanggan
     {
-        //
+        $pelanggan->delete();
+        return redirect('/datauser')->with('success', 'Data Pelanggan Berhasil di hapus!');
     }
 
     public function profiltoko() // view profil toko di dashboard pelanggan

@@ -54,7 +54,7 @@ class DataGameApiController extends Controller
         ]);
     }
 
-    public function show(Game_request $game_request)
+    public function show(Game_request $game_request) // get one game by id game
     {
         $game = Game_request::find($game_request->id_game);
         $data = [
@@ -109,12 +109,24 @@ class DataGameApiController extends Controller
         ]);
     }
 
-    public function carigame() // cari data game
+    public function carigame(Request $request) // cari data game
     {
-        $game = Game_request::latest()->filter()->get();
+        $query = Game_request::query();
+
+        if ($request->has('nama_game')) {
+            $query->where('nama_game', 'like', '%' . $request->input('nama_game') . '%');
+        }
+
+        if ($request->has('developer')) {
+            $query->orWhere('developer', 'like', '%' . $request->input('developer') . '%');
+        }
+
+        $game = $query->get();
+
         $data = [
-            'game' => $game
+            $game
         ];
+
         return response()->json([
             'statusCode' => 200,
             'data' => $data
