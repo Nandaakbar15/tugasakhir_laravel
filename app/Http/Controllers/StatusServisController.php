@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Antrian;
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Events\ServiceStatusUpdated;
@@ -21,30 +22,6 @@ class StatusServisController extends Controller
             'antrian' => $antrian,
             'username' => $username
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Antrian $antrian)
-    {
-        //
     }
 
     /**
@@ -75,13 +52,5 @@ class StatusServisController extends Controller
         event(new ServiceStatusUpdated($antrian));
 
         return redirect('/dashboard')->with('success', 'Status Servis Berhasil diubah!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Antrian $antrian)
-    {
-        //
     }
 }

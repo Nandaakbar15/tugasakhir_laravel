@@ -27,7 +27,7 @@ Dari Sisi Teknisi :
 
 ## FITUR YANG BELUM ADA
 
--   Masukin list request Game pada saat pelanggan mengisi data ✅
+-   Masukin list request Game pada saat pelanggan mengisi data (Sudah ditambahkan) ✅
 
 ## FITUR YANG DI PERBAIKI
 
@@ -40,6 +40,7 @@ Dari Sisi Teknisi :
 -   List game muncul di notifikasi email teknisi ✅
 -   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
 -   Memperbaiki error di endpoint API cari data game
+-   Menampilkan gambar di email teknisi ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

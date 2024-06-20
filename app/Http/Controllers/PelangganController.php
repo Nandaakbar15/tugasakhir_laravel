@@ -8,14 +8,11 @@ use App\Models\Kendala;
 use App\Models\Pelanggan;
 use App\Models\Konsol;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\ProfilToko;
 use App\Models\Notifikasi;
-// use App\Notifications\SendNotification;
 use App\Models\Teknisi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Log;
 
 class PelangganController extends Controller
 {
@@ -40,6 +37,9 @@ class PelangganController extends Controller
      */
     public function store(Request $request) // isi data logic
     {
+
+        ini_set('max_execution_time', 199);
+
         $request->validate([ // validasi data
         'nama_pelanggan' => 'required|max:50',
         'alamat' => 'required',
@@ -76,6 +76,18 @@ class PelangganController extends Controller
             ];
         }
 
+        $file = $request->file('foto');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $path = $file->storeAs('images', $fileName, 'public');
+        // $localPath = storage_path('app/public' . $path);
+
+        $konsol = Konsol::create([ // Isi data konsol
+            'nama_konsol' => $request->nama_konsol,
+            'foto' => '/storage/' . $path,
+            // 'foto' => $localPath,
+            'id_pelanggan' => $pelanggan->id_pelanggan,
+        ]);
+
         $notificationContent = [ // isi notifikasi
             "nama_pelanggan" => $request->nama_pelanggan,
             "alamat" => $request->alamat,
@@ -83,6 +95,7 @@ class PelangganController extends Controller
             "no_telp" => $request->no_telp,
             "nama_konsol" =>  $request->nama_konsol,
             "kendala_kerusakan" => $request->kendala_kerusakan,
+            "foto" => $request->foto,
             "game_list" => $gameListContent
         ];
 
@@ -92,19 +105,10 @@ class PelangganController extends Controller
             'isi_notifikasi' => json_encode($notificationContent)
         ]);
 
-        $file = $request->file('foto');
-        $fileName = time() . '_' . $file->getClientOriginalName();
-        $path = $file->storeAs('images', $fileName, 'public');
-
-        $konsol = Konsol::create([ // Isi data konsol
-            'nama_konsol' => $request->nama_konsol,
-            'foto' => '/storage/' . $path,
-            'id_pelanggan' => $pelanggan->id_pelanggan,
-        ]);
-
         $antrian = new Antrian();
         $antrian->id_konsol = $konsol->id_konsol;
         $antrian->id_pelanggan = $pelanggan->id_pelanggan;
+        $antrian->nama_pelanggan = $pelanggan->nama_pelanggan;
         $antrian->status_servis;
         $antrian->tgl_servis;
         $antrian->save();
@@ -115,7 +119,7 @@ class PelangganController extends Controller
         ]);
 
         Mail::to($recipientEmail)->send(new CustomerNotificationMail($notificationContent)); // kirim notifikasi ke teknisi
-        // $user->notify(new SendNotification($isi_notifikasi));
+        // SendCustomerNotification::dispatch($notificationContent);
 
         return redirect('/pelanggan/dashboardpelanggan')->with('success', 'Data kamu sudah di kirim ke teknisi!');
     }
@@ -156,7 +160,11 @@ class PelangganController extends Controller
      */
     public function destroy(Pelanggan $pelanggan) // hapus data pelanggan
     {
+
+        Antrian::where("id_pelanggan", $pelanggan->id_pelanggan)->delete();
+
         $pelanggan->delete();
+
         return redirect('/datauser')->with('success', 'Data Pelanggan Berhasil di hapus!');
     }
 
@@ -166,8 +174,6 @@ class PelangganController extends Controller
         return view('dashboardpelanggan.layouts.abouts', [
             'profilToko' => $profilToko
         ]);
-
-        // return view('dashboardpelanggan.layouts.abouts');
     }
 
     public function statusservis() // melihat status servis

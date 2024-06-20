@@ -71,8 +71,8 @@ Route::middleware(['web','auth', 'checkRole:admin'])->group(function() {
     Route::post('/cariUser', 'App\Http\Controllers\DataUserController@cariUser'); // filter cari data user
     Route::get('/ubahdata_pelanggan/{pelanggan}', 'App\Http\Controllers\PelangganController@edit'); // view ubah data pelanggan
     Route::put('/ubahdata_pelanggan/{pelanggan}', 'App\Http\Controllers\PelangganController@update'); // ubah data pelanggan
-    Route::delete('/hapusPelanggan', 'App\Http\Controllers\PelangganController@destroy'); // hapus data pelanggan
-    Route::delete('/hapusTeknisi', 'App\Http\Controllers\TeknisiController@destroy'); // hapus data teknisi
+    Route::delete('/hapusPelanggan/{pelanggan}', 'App\Http\Controllers\PelangganController@destroy'); // hapus data pelanggan
+    Route::delete('/hapusTeknisi/{teknisi}', 'App\Http\Controllers\TeknisiController@destroy'); // hapus data teknisi
     Route::get('/datagame', 'App\Http\Controllers\GameRequestController@index'); // view data game
     Route::post('/carigame', 'App\Http\Controllers\GameRequestController@cariGame'); // filter cari data game
     Route::get('/tambahgame', 'App\Http\Controllers\GameRequestController@create'); // view tambah data game

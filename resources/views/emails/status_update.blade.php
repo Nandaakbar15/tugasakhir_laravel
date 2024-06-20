@@ -3,9 +3,9 @@
 
 Dear {{ $antrian->user->name }},
 
-The status of your service request (Antrian No: {{ $antrian->no_antrian }}) has been updated to: {{ $antrian->status_servis }}
+Status servis konsol kamu dengan no. antrian (Antrian No: {{ $antrian->no_antrian }}) sudah di ubah menjadi: {{ $antrian->status_servis }}
 
-Thank you for using our service.
+Terimakasih sudah menggunakan layanan kami.
 
 @component('mail::button', ['url' => route('service.status', $antrian->id)])
 View Service Status

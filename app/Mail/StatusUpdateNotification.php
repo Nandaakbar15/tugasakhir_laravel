@@ -33,20 +33,6 @@ class StatusUpdateNotification extends Mailable
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
-    }
-
     public function build()
     {
         return $this->markdown('emails.status_update')

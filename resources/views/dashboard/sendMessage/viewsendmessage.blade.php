@@ -15,13 +15,17 @@
     <form action="/kirim-notifikasi" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="email" class="form-label">Email Pelanggan</label>
-            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" required>
-            @error('email')
-                <div class="is-invalid">
-                    {{ $message }}
-                </div>
-            @enderror
+            @foreach ($pelanggan as $data)
+                <label for="email" class="form-label">Email Pelanggan</label>
+                <select name="email" id="email" class="form-control @error('email') is-invalid @enderror">
+                    <option value="{{ $data->email }}">{{ $data->email }}</option>
+                </select>
+                @error('email')
+                    <div class="is-invalid">
+                        {{ $message }}
+                    </div>
+                @enderror
+            @endforeach
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">Pesan</label>

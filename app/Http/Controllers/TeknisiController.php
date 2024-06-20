@@ -86,7 +86,7 @@ class TeknisiController extends Controller
      */
     public function destroy(Teknisi $teknisi)
     {
-        $teknisi = Teknisi::where('id_teknisi', $teknisi->id_teknisi)->delete();
+        Teknisi::destroy('id_teknisi', $teknisi->id_teknisi);
         return redirect('/dashboard')->with('success', 'Data Teknisi Berhasil di hapus!');
     }
 
@@ -133,9 +133,11 @@ class TeknisiController extends Controller
 
     public function sendMessage() // view kirim pesan ke pelanggan
     {
+        $pelanggan = Pelanggan::all();
         $username = Auth::user()->name;
         return view("dashboard.sendMessage.viewsendmessage", [
-            "username" => $username
+            "username" => $username,
+            "pelanggan" => $pelanggan
         ]);
     }
 
