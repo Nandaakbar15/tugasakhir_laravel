@@ -35,7 +35,7 @@ class StatusUpdateNotification extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.status_update')
-                    ->with(['antrian' => $this->antrian]);
+         return $this->view('emails.status_update')
+                    ->subject('Status Update Notification');
     }
 }

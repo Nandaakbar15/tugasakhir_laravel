@@ -12,6 +12,7 @@ use App\Models\ProfilToko;
 use App\Models\Notifikasi;
 use App\Models\Teknisi;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class PelangganController extends Controller
@@ -79,7 +80,7 @@ class PelangganController extends Controller
         $file = $request->file('foto');
         $fileName = time() . '_' . $file->getClientOriginalName();
         $path = $file->storeAs('images', $fileName, 'public');
-        // $localPath = storage_path('app/public' . $path);
+        $filePath = '/storage/' . $path;
 
         $konsol = Konsol::create([ // Isi data konsol
             'nama_konsol' => $request->nama_konsol,
@@ -95,7 +96,7 @@ class PelangganController extends Controller
             "no_telp" => $request->no_telp,
             "nama_konsol" =>  $request->nama_konsol,
             "kendala_kerusakan" => $request->kendala_kerusakan,
-            "foto" => $request->foto,
+            "foto" => $filePath,
             "game_list" => $gameListContent
         ];
 
@@ -109,6 +110,7 @@ class PelangganController extends Controller
         $antrian->id_konsol = $konsol->id_konsol;
         $antrian->id_pelanggan = $pelanggan->id_pelanggan;
         $antrian->nama_pelanggan = $pelanggan->nama_pelanggan;
+        $antrian->email = $pelanggan->email;
         $antrian->status_servis;
         $antrian->tgl_servis;
         $antrian->save();

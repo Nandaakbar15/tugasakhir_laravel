@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign("id_pelanggan")->references("id_pelanggan")->on("tbl_pelanggan");
             $table->string("nama_pelanggan", 50);
             $table->string("no_antrian", 50);
+            $table->string("email");
             $table->date("tgl_servis");
             $table->enum("status_servis", ["belum selesai", "sudah selesai"]);
             $table->timestamps();

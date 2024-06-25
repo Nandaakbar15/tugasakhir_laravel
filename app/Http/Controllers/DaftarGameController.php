@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Game_request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DaftarGameController extends Controller
 {
@@ -19,7 +20,6 @@ class DaftarGameController extends Controller
 
     public function tambahGame(Request $request) // logika untuk tombol tambah ke list
     {
-        $user = User::find(Auth::user()->gameLists);
 
         $idGame = $request->input("id_game");
 
@@ -27,14 +27,6 @@ class DaftarGameController extends Controller
         if(!$game) {
             return redirect()->with("error", "Game tidak tersedia atau tidak ditemukan!");
         }
-
-        // // Check if the game is already in the user's list
-        // if ($user->gameLists()->where('game_request_id', $idGame)->exists()) {
-        //     return redirect('pelanggan/servis')->with("error", "Game sudah ada di dalam list!");
-        // }
-
-        // // Add game to the user's list
-        // $user->gameLists()->attach($idGame);
 
         // Tambah game ke list
         $gameList = session()->get('game', []);
@@ -46,6 +38,7 @@ class DaftarGameController extends Controller
             'platform' => $game->platform,
             'foto' => $game->foto
         ];
+
         session()->put('game', $gameList);
 
         return redirect('/pelanggan/servis')->with("success", "Game ditambahkan ke list!");
@@ -59,6 +52,6 @@ class DaftarGameController extends Controller
             unset($gameList[$idGame]);
             session()->put('game', $gameList);
         }
-        return redirect()->route('/pelanggan/servis')->with("success", "Game dihapus dari list!");
+        return redirect('/pelanggan/servis')->with("success", "Game dihapus dari list!");
     }
 }

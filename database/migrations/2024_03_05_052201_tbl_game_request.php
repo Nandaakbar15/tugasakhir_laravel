@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('tbl_game_request', function (Blueprint $table) {
             $table->id("id_game");
-            $table->unsignedBigInteger("id_pelanggan");
-            $table->foreign("id_pelanggan")->references("id_pelanggan")->on("tbl_pelanggan");
             $table->string("nama_game", 50);
             $table->string("developer", 50);
             $table->date("tgl_rilis");

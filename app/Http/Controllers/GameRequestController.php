@@ -40,9 +40,6 @@ class GameRequestController extends Controller
      */
     public function store(Request $request) // tambah data game
     {
-        $user = auth()->user();
-
-        $id_pelanggan = $user->pelanggan->id_pelanggan;
         // Validate the request data, including the image file
         $validatedData = $request->validate([
             'nama_game' => 'required|max:50',
@@ -52,28 +49,14 @@ class GameRequestController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules for image upload
         ]);
 
-        $validatedData['id_pelanggan'] = $id_pelanggan;
+        $file = $request->file('foto');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $path = $file->storeAs('images', $fileName, 'public');
+        $validatedData['foto'] = '/storage/' . $path;
 
-         // Handle file upload
-         if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('images', $fileName, 'public');
-            $validatedData['foto'] = '/storage/' . $path;
-            }
-
-        // Create the game request record
         Game_request::create($validatedData);
         return redirect('/dashboard')->with('success', 'Data Game berhasil di tambah!');
     }
-    /**
-     * Display the specified resource.
-     */
-    public function show(Game_request $game_request)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */

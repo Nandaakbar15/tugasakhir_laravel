@@ -17,8 +17,7 @@ class SendStatusUpdateNotification
     public function handle(object $event): void
     {
         $antrian = $event->antrian;
-        $user = $antrian->user;
 
-        Mail::to($user->email)->send(new StatusUpdateNotification($antrian));
+        Mail::to($antrian->email)->send(new StatusUpdateNotification($antrian));
     }
 }

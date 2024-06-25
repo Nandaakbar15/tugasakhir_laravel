@@ -24,6 +24,12 @@ class StatusServisController extends Controller
         ]);
     }
 
+    public function showStatus($id)
+    {
+        $antrian = Antrian::findOrFail($id);
+        return view('service.status', compact('antrian'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

@@ -7,10 +7,10 @@ Status servis konsol kamu dengan no. antrian (Antrian No: {{ $antrian->no_antria
 
 Terimakasih sudah menggunakan layanan kami.
 
-@component('mail::button', ['url' => route('service.status', $antrian->id)])
+{{-- @component('mail::button', ['url' => route('service.status', $antrian->id)])
 View Service Status
-@endcomponent
+@endcomponent --}}
 
 Thanks,<br>
 {{ config('app.name') }}
-@endcomponent
+{{-- @endcomponent --}}

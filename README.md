@@ -41,6 +41,7 @@ Dari Sisi Teknisi :
 -   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
 -   Memperbaiki error di endpoint API cari data game
 -   Menampilkan gambar di email teknisi ✅
+-   Menampilkan data game request dengan gambar di email teknisi ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

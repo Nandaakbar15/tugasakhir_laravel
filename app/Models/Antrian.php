@@ -10,7 +10,7 @@ class Antrian extends Model
 {
     protected $table = 'tbl_antrian';
     protected $primaryKey = 'id_antrian';
-    protected $fillable = ['id_konsol', 'id_pelanggan', 'nama_pelanggan','no_antrian', 'tgl_servis', 'status_servis'];
+    protected $fillable = ['id_konsol', 'id_pelanggan', 'nama_pelanggan', 'email', 'no_antrian', 'tgl_servis', 'status_servis'];
     use HasFactory;
 
    protected static function boot()

@@ -39,7 +39,7 @@
                 @enderror
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">ubah!</button>
+        <button type="submit" class="btn btn-primary mb-3">ubah!</button>
         </form>
     </div>
     <a href="/kelolaprofiltoko" class="btn btn-primary">Kembali</a>
