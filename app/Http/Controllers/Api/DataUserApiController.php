@@ -35,18 +35,21 @@ class DataUserApiController extends Controller
         $query2 = Teknisi::query();
 
         if($request->has('nama_pelanggan') OR $request->has('email')) {
-            $query1->where('nama_pelanggan', 'like', '%' . $request->get('nama_pelanggan') . '%')
-                    ->orWhere('email', 'like', '%' . $request->get('email') . '%');
+            $query1->where('nama_pelanggan', 'like', '%' . $request->input('nama_pelanggan') . '%')
+                    ->orWhere('email', 'like', '%' . $request->input('email') . '%');
         }
 
         if($request->has('nama_teknisi') OR $request->has('alamat')) {
-            $query2->where('nama_teknisi', 'like', '%' . $request->get('nama_teknisi') . '%')
-                    ->orWhere('alamat', 'like', '%' . $request->get('alamat') . '%');
+            $query2->where('nama_teknisi', 'like', '%' . $request->input('nama_teknisi') . '%')
+                    ->orWhere('alamat', 'like', '%' . $request->input('alamat') . '%');
         }
 
+        $pelanggan = $query1->get();
+        $teknisi = $query2->get();
+
         $data = [
-            $query1,
-            $query2
+            $pelanggan,
+            $teknisi
         ];
 
         return response()->json([

@@ -42,6 +42,8 @@ Dari Sisi Teknisi :
 -   Memperbaiki error di endpoint API cari data game
 -   Menampilkan gambar di email teknisi ✅
 -   Menampilkan data game request dengan gambar di email teknisi ✅
+-   Memperbaiki data tidak muncul saat mencari data user di API data user ✅
+-   Memperbaiki data tidak muncul saat mencari data atau laporan servis di API laporan servis ✅
 
 ## FITUR YANG DI TAMBAHKAN
 
@@ -49,6 +51,7 @@ Dari Sisi Teknisi :
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
 -   Menambahkan API antara Pelanggan dan teknisi ✅
 -   Menambahkan endpoint cari data game ✅
+-   Menambahkan endpoint cari data user ✅
 
 ## Contributing
 

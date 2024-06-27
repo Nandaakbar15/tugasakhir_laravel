@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/editprofilToko/{profiltoko_request}', 'App\Http\Controllers\Api\TeknisiApiController@editprofiltoko'); // ubah profil toko
     Route::get('/datalaporanservis', 'App\Http\Controllers\Api\TeknisiApiController@datalaporan_servis');
     Route::get('/dataTeknisi', 'App\Http\Controllers\Api\TeknisiApiController@index');
-    Route::post('/findReport', 'App\Http\Controllers\Api\TeknisiApiController@cari_laporan'); // cari laporan servis berdasarkan tanggalnya
+    Route::post('/findReport', 'App\Http\Controllers\Api\TeknisiApiController@cari_laporan_servis'); // cari laporan servis berdasarkan tanggalnya
     Route::post('/tambahTeknisi', 'App\Http\Controllers\Api\TeknisiApiController@store'); // logika tambah teknisi
     Route::put('/updateTeknisi/{teknisi}', 'App\Http\Controllers\Api\TeknisiApiController@update'); // logika ubah teknisi
 });
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'pelanggan'], function() {
     Route::get('/dataPelanggan', 'App\Http\Controllers\Api\PelangganApiController@index');
     Route::post('/isidata', 'App\Http\Controllers\Api\PelangganApiController@store');
     Route::get('/status_servis', 'App\Http\Controllers\Api\PelangganApiController@statusservis');
-    Route::get('/profilToko', 'App\Http\Api\PelangganApiController@profil_toko');
+    Route::get('/profilToko', 'App\Http\Controllers\Api\PelangganApiController@profil_toko');
 });
 
 

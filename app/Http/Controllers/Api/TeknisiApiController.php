@@ -120,4 +120,25 @@ class TeknisiApiController extends Controller
             'message' => 'Profil Toko berhasil diubah!'
         ]);
     }
+
+    public function cari_laporan_servis(Request $request)
+    {
+        $query = Antrian::query();
+
+        if($request->has('nama_pelanggan') or  $request->has('tgl_servis')) {
+            $query->where('nama_pelanggan', 'like', '%' . $request->input('nama_pelanggan') . '%')
+                  ->orWhere('tgl_servis', 'like', '%' . $request->input('tgl_servis') . '%');
+        }
+
+        $antrian = $query->get();
+
+        $data = [
+            $antrian
+        ];
+
+        return response()->json([
+            'statusCode' => 200,
+            'data' => $data
+        ]);
+    }
 }
