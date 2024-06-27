@@ -5,10 +5,8 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Models\Antrian;
-use App\Models\ProfilToko;
 
-class PelangganTest extends TestCase
+class TeknisiTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -18,10 +16,5 @@ class PelangganTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-    }
-
-    public function teststatusservis()
-    {
-
     }
 }
