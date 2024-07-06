@@ -41,7 +41,7 @@
                                             <td>{{ $item->developer }}</td>
                                             <td><a href="/ubahGame/{{ $item->id_game }}" class="badge btn btn-warning"><img src="{{ asset('images/edit.png') }}" alt="edit" width="60px" height="60px"></a></td>
                                             <td>
-                                                <form action="/hapusGame/{{ $item->id_konsol }}" class="d-inline" method="POST">
+                                                <form action="/hapusGame/{{ $item->id_game }}" class="d-inline" method="POST">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="badge border-0" onclick="return confirm('Yakin mau hapus data ini?')"><img src="{{ asset('images/delete.png') }}" alt="" width="60px" height="60px"></button>

@@ -79,7 +79,8 @@ Route::middleware(['web','auth', 'checkRole:admin'])->group(function() {
     Route::get('/tambahgame', 'App\Http\Controllers\GameRequestController@create'); // view tambah data game
     Route::post('/tambahgame', 'App\Http\Controllers\GameRequestController@store'); // logika tambah game
     Route::get('/ubahGame/{game_request}', 'App\Http\Controllers\GameRequestController@edit'); // view ubah game
-    Route::post('/ubahGame/update/{game_request}', 'App\Http\Controllers\GameRequestController@update'); // logika ubah game
+    Route::put('/ubahGame/{game_request}', 'App\Http\Controllers\GameRequestController@update'); // logika ubah game
+    Route::delete('/hapusGame/{game_request}', 'App\Http\Controllers\GameRequestController@destroy'); // hapus data game
     Route::get('/kelolaprofiltoko', 'App\Http\Controllers\KelolaProfilTokoController@kelolaprofil_toko'); // view kelola profil toko
     Route::get('/ubahprofilToko/{profiltoko_request}', 'App\Http\Controllers\KelolaProfilTokoController@editprofil_toko'); // view ubah profil toko
     Route::post('/ubahprofilToko/{profiltoko_request}', 'App\Http\Controllers\KelolaProfilTokoController@updateprofiltoko'); // ubah profil toko

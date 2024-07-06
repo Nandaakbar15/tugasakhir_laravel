@@ -2,13 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Konsol;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Pelanggan;
+use App\Models\Teknisi;
+
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Konsol>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProfilToko>
  */
-class KonsolFactory extends Factory
+class ProfilTokoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +20,9 @@ class KonsolFactory extends Factory
     {
         return [
             "id_pelanggan" => Pelanggan::factory(),
-            "nama_konsol" => $this->faker->name(),
+            "id_teknisi" => Teknisi::factory(),
+            "nama_toko" => $this->faker->company(),
+            "deskripsi" => $this->faker->text(),
             "foto" => $this->faker->imageUrl(640, 480),
         ];
     }

@@ -106,8 +106,10 @@ class TeknisiController extends Controller
     public function cari_laporan() // search laporan
     {
         $username = Auth::user()->name;
+        $pelanggan = Pelanggan::all();
         $antrian = Antrian::latest()->filter()->get();
         return view('dashboard.datalaporanservis.viewlaporanservis', [
+            'pelanggan' => $pelanggan,
             'antrian' => $antrian,
             'username' => $username
         ]);

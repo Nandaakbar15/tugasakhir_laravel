@@ -44,6 +44,7 @@ Dari Sisi Teknisi :
 -   Menampilkan data game request dengan gambar di email teknisi ✅
 -   Memperbaiki data tidak muncul saat mencari data user di API data user ✅
 -   Memperbaiki data tidak muncul saat mencari data atau laporan servis di API laporan servis ✅
+-   Memperbaiki Test Case pada Pelanggan dan Teknisi ✅
 
 ## FITUR YANG DI TAMBAHKAN
 
@@ -52,6 +53,7 @@ Dari Sisi Teknisi :
 -   Menambahkan API antara Pelanggan dan teknisi ✅
 -   Menambahkan endpoint cari data game ✅
 -   Menambahkan endpoint cari data user ✅
+-   Menambahkan Test Case Teknisi (admin) ✅
 
 ## Contributing
 

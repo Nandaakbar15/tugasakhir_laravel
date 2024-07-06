@@ -17,7 +17,10 @@ class PelangganFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "nama_pelanggan" => $this->faker->name(),
+            "alamat" => $this->faker->address(),
+            "no_telp" => $this->faker->phoneNumber(),
+            "email" => $this->faker->email()
         ];
     }
 }

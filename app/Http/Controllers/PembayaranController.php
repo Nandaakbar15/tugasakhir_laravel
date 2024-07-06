@@ -40,6 +40,7 @@ class PembayaranController extends Controller
         $pelanggan = Pelanggan::find($request->input('id_pelanggan'));
         $pembayaran = Pembayaran::find($request->input('id_pembayaran'));
         $antrian = Antrian::find($request->input('id_antrian'));
+        $jumlah_pembayaran = $pembayaran->jumlah_pembayaran;
 
         if (!$pelanggan || !$antrian) {
             return back()->with('error', 'Pelanggan or Antrian not found.');
@@ -50,7 +51,8 @@ class PembayaranController extends Controller
             'payment_token' => $payment_token,
             'pelanggan' => $pelanggan,
             'antrian' => $antrian,
-            'pembayaran' => $pembayaran
+            'pembayaran' => $pembayaran,
+            'jumlah_pembayaran' => $jumlah_pembayaran,
         ]);
     }
 
