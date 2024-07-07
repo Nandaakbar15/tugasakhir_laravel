@@ -34,7 +34,7 @@
                     </div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Ubah!</button>
+            <button type="submit" class="btn btn-primary mb-3">Ubah!</button>
         </form>
     </div>
     <a href="/datauser" class="btn btn-primary">Kembali</a>

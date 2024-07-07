@@ -29,7 +29,10 @@
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">Pesan</label>
-            <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="5" required></textarea>
+            <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="5" required>
+                Terimakasih sudah menggunakan layanan kami, untuk selanjutnya dimohon untuk
+                membawa konsol anda setelah itu proses perbaikan konsol akan kami lakukan.
+            </textarea>
             @error('message')
                 <div class="is-invalid">
                     {{ $message }}
