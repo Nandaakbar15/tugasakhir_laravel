@@ -32,6 +32,7 @@
                     </div>
                 @endforeach
             </div>
+            <a href="/pelanggan/servis" class="btn btn-primary">Kembali</a>
         </div>
     </section>
 @endsection

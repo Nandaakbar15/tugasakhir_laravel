@@ -39,7 +39,6 @@ Dari Sisi Teknisi :
 -   Memperbaiki halaman status servis dan datanya muncul semua ✅
 -   List game muncul di notifikasi email teknisi ✅
 -   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
--   Memperbaiki error di endpoint API cari data game
 -   Menampilkan gambar di email teknisi ✅
 -   Menampilkan data game request dengan gambar di email teknisi ✅
 -   Memperbaiki data tidak muncul saat mencari data user di API data user ✅
@@ -52,10 +51,8 @@ Dari Sisi Teknisi :
 
 -   Mengirim notifikasi dari teknisi ke pelanggan ✅
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
--   Menambahkan API antara Pelanggan dan teknisi ✅
--   Menambahkan endpoint cari data game ✅
--   Menambahkan endpoint cari data user ✅
 -   Menambahkan Test Case Teknisi (admin) ✅
+-   Menambahkan tombol kembali di halaman daftar game (dashboard pelanggan) ✅
 
 ## Contributing
 
