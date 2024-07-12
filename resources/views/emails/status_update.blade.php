@@ -1,7 +1,7 @@
 @component('mail::message')
 # Status Update
 
-Dear {{ $antrian->user->name }},
+Dear customer yang bernama {{ $antrian->nama_pelanggan }},
 
 Status servis konsol kamu dengan no. antrian (Antrian No: {{ $antrian->no_antrian }}) sudah di ubah menjadi: {{ $antrian->status_servis }}
 

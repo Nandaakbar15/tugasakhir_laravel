@@ -20,12 +20,6 @@ class LoginController extends Controller
         ]);
 
           if(Auth::attempt($validate)) {
-            $user = Auth::user();
-            // Check if the user's email is verified
-            if(!$user->email_verified_at === null) {
-                return redirect('/email/verify'); // Redirect to email verification page
-            }
-
             $request->session()->regenerate();
 
             if(auth()->user()->role === 'admin'){

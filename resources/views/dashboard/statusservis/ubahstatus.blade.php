@@ -23,6 +23,13 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label class="form-label" for="email">Email Pelanggan</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="id_konsol" value="{{ old('email', $antrian->email) }}" disabled>
+                @error('id_konsol')
+                    {{ $message }}
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="tgl_service" class="form-label">Tanggal Service</label>
                 <input type="date" class="form-control @error('tgl_service') is-invalid @enderror" id="tgl_rilis" name="tgl_rilis" value="{{ old('tgl_servis', $antrian->tgl_servis) }}" disabled>
                 @error('tgl_rilis')
@@ -43,7 +50,8 @@
                     </div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Ubah!</button>
+            <button type="submit" class="btn btn-primary mb-3">Ubah!</button>
         </form>
+        <a href="/status_servis" class="btn btn-primary">Kembali</a>
     </div>
 @endsection

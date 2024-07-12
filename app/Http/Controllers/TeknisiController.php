@@ -14,6 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Notifications\SendMessageTechinian;
 use Illuminate\Support\Facades\Notification;
+use App\Models\User;
 
 class TeknisiController extends Controller
 {
@@ -150,11 +151,10 @@ class TeknisiController extends Controller
             'message' => 'required',
         ]);
 
-        $pelanggan = Pelanggan::where('email', $request->email)->first();
-
+        $pelanggan = Pelanggan::where("email", $request->email)->first();
         if($pelanggan) {
             $notificationdetails = [
-                'greeting' => 'Dear customer yang bernama, ' . $pelanggan->nama_pelanggan,
+                'greeting' => 'Dear customer dengan nama, ' . $pelanggan->nama_pelanggan,
                 'body' => $request->message,
                 'thanks' => 'Terimakasih sudah menggunakan layanan kami!',
             ];

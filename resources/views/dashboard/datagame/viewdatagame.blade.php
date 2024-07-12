@@ -54,5 +54,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        {{ $game->links() }}
+                    </div>
                     <a href="/dashboard" class="btn btn-primary">Kembali</a>
 @endsection

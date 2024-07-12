@@ -41,7 +41,7 @@
                             <input type="hidden" value="{{ $c->id_antrian }}" name="id_antrian">
                         @endforeach
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Pelanggam</label>
+                            <label for="nama" class="form-label">Nama Pelanggan</label>
                             <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Anda!">
                         </div>
                         <div class="mb-3">

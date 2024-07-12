@@ -10,6 +10,7 @@ use App\Models\Konsol;
 use Illuminate\Http\Request;
 use App\Models\ProfilToko;
 use App\Models\Notifikasi;
+use App\Models\Pembayaran;
 use App\Models\Teknisi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -118,6 +119,7 @@ class PelangganController extends Controller
         Kendala::create([ // isi kendala dan kerusakan konsol
             'kendala_kerusakan' => $request->kendala_kerusakan,
             'id_konsol' => $konsol->id_konsol,
+            'id_pelanggan' => $pelanggan->id_pelanggan
         ]);
 
         Mail::to($recipientEmail)->send(new CustomerNotificationMail($notificationContent)); // kirim notifikasi ke teknisi
@@ -162,9 +164,25 @@ class PelangganController extends Controller
      */
     public function destroy(Pelanggan $pelanggan) // hapus data pelanggan
     {
+        // Delete related pembayaran records first
+        Pembayaran::where("id_pelanggan", $pelanggan->id_pelanggan)->delete();
 
+        // Then delete related antrian records
         Antrian::where("id_pelanggan", $pelanggan->id_pelanggan)->delete();
 
+        // Then delete related kendala records through konsol relationship
+        $konsols = Konsol::where("id_pelanggan", $pelanggan->id_pelanggan)->get();
+        foreach ($konsols as $konsol) {
+            Kendala::where("id_konsol", $konsol->id_konsol)->delete();
+        }
+
+        // Finally delete related konsol records
+        Konsol::where("id_pelanggan", $pelanggan->id_pelanggan)->delete();
+
+        // Delete related notifikasi records
+        Notifikasi::where("id_pelanggan", $pelanggan->id_pelanggan)->delete();
+
+        // Delete the pelanggan record
         $pelanggan->delete();
 
         return redirect('/datauser')->with('success', 'Data Pelanggan Berhasil di hapus!');

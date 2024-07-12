@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('tbl_kendala', function (Blueprint $table) {
             $table->id("id_kerusakan");
             $table->unsignedBigInteger('id_konsol');
+            $table->unsignedBigInteger("id_pelanggan");
+            $table->foreign("id_pelanggan")->references("id_pelanggan")->on("tbl_pelanggan");
             $table->foreign("id_konsol")->references("id_konsol")->on("tbl_konsol");
             $table->string("kendala_kerusakan", 50);
             $table->timestamps();

@@ -17,7 +17,7 @@ class GameRequestController extends Controller
     public function index() // view data game
     {
         $username = Auth::user()->name;
-        $game = Game_request::all();
+        $game = Game_request::paginate(4)->withQueryString();
         return view('dashboard.datagame.viewdatagame', [
             'game' => $game,
             'username' => $username
