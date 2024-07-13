@@ -41,18 +41,18 @@ Dari Sisi Teknisi :
 -   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
 -   Menampilkan gambar di email teknisi ✅
 -   Menampilkan data game request dengan gambar di email teknisi ✅
--   Memperbaiki Test Case pada Pelanggan dan Teknisi ✅
 -   Memberikan jarak tombol ubah di view ubah teknisi ✅
 -   Kini kolom memberi pesan sudah ada dan teknisi tidak perlu mengetik pesan ke pelanggan secara manual ✅
 -   Memperbaiki error saat hapus data pelanggan ✅
 -   Merapihkan tampilan ui dari notifikasi status servis ✅
+-   Fix error search game ✅
 
 ## FITUR YANG DI TAMBAHKAN
 
 -   Mengirim notifikasi dari teknisi ke pelanggan ✅
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
--   Menambahkan Test Case Teknisi (admin) ✅
 -   Menambahkan tombol kembali di halaman daftar game (dashboard pelanggan) ✅
+-   Menambahkan fitur pagination di menu daftar game (dashboard pelanggan) ✅
 
 ## Contributing
 

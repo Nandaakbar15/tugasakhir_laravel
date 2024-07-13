@@ -26,7 +26,7 @@
             </div>
         </nav>
         <h1>Playstation Games</h1>
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 30rem;">
             <div class="card-body">
                 <h5 class="card-title">Detail Pembayaran</h5>
                 <table>

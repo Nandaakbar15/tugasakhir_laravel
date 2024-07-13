@@ -32,6 +32,9 @@
                     </div>
                 @endforeach
             </div>
+            <div class="d-flex justify-content-center">
+                {{ $game->links() }}
+            </div>
             <a href="/pelanggan/servis" class="btn btn-primary">Kembali</a>
         </div>
     </section>

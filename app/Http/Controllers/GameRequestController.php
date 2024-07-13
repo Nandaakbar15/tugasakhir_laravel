@@ -108,10 +108,13 @@ class GameRequestController extends Controller
         return redirect('/dashboard')->with('success', 'Data Game berhasil di hapus!');
     }
 
-    public function carigame() // cari data game
+    public function carigame(Request $request) // cari data game
     {
         $username = Auth::user()->name;
-        $game = Game_request::latest()->filter()->get();
+        $cariGame = $request->input('cariGame');
+        $game = Game_request::query()
+                ->where('nama_game', 'like', '%' . $cariGame . '%')
+                ->paginate(5);
         return view('dashboard.datagame.viewdatagame', [
             'game' => $game,
             'username' => $username

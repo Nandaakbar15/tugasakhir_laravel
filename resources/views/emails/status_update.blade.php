@@ -35,4 +35,4 @@
         </td>
     </tr>
 </table>
-@endcomponent
+{{-- @endcomponent --}}

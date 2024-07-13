@@ -5,7 +5,7 @@
             @csrf
             <div class="input-group">
                     <input type="text" class="form-control" placeholder="Cari game..." aria-label="Cari game" name="cariGame" value="{{ request('cariGame') }}">
-                    <button class="btn btn-outline-secondary" type="button">Cari game</button>
+                    <button class="btn btn-outline-secondary" type="submit">Cari game</button>
             </div>
         </form>
         <br>
