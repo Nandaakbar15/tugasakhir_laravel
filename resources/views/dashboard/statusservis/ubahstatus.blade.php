@@ -24,8 +24,8 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="email">Email Pelanggan</label>
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="id_konsol" value="{{ old('email', $antrian->email) }}" disabled>
-                @error('id_konsol')
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $antrian->email) }}" disabled>
+                @error('email')
                     {{ $message }}
                 @enderror
             </div>

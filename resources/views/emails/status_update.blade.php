@@ -1,16 +1,38 @@
 @component('mail::message')
-# Status Update
-
-Dear customer yang bernama {{ $antrian->nama_pelanggan }},
-
-Status servis konsol kamu dengan no. antrian (Antrian No: {{ $antrian->no_antrian }}) sudah di ubah menjadi: {{ $antrian->status_servis }}
-
-Terimakasih sudah menggunakan layanan kami.
-
-{{-- @component('mail::button', ['url' => route('service.status', $antrian->id)])
-View Service Status
-@endcomponent --}}
-
-Thanks,<br>
-{{ config('app.name') }}
-{{-- @endcomponent --}}
+<table style="width: 100%; border-collapse: collapse;">
+    <tr>
+        <td style="background-color: #007bff; padding: 10px; color: white; text-align: center;">
+            <h1 style="margin: 0; font-size: 24px;">Status Update</h1>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px;">
+            <p style="margin: 0; font-size: 18px;">
+                Dear customer yang bernama <strong>{{ $antrian->nama_pelanggan }}</strong>,
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px;">
+            <p style="margin: 0; font-size: 16px;">
+                Status servis konsol kamu dengan no. antrian (Antrian No: <strong>{{ $antrian->no_antrian }}</strong>) sudah di ubah menjadi: <strong>{{ $antrian->status_servis }}</strong>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px;">
+            <p style="margin: 0; font-size: 16px;">
+                Terimakasih sudah menggunakan layanan kami.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: #f8f9fa; padding: 10px; text-align: center;">
+            <p style="margin: 0; font-size: 14px;">
+                Thanks,<br>
+                {{ config('app.name') }}
+            </p>
+        </td>
+    </tr>
+</table>
+@endcomponent

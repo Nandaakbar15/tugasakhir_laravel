@@ -47,6 +47,7 @@ Dari Sisi Teknisi :
 -   Memberikan jarak tombol ubah di view ubah teknisi ✅
 -   Kini kolom memberi pesan sudah ada dan teknisi tidak perlu mengetik pesan ke pelanggan secara manual ✅
 -   Memperbaiki error saat hapus data pelanggan ✅
+-   Merapihkan tampilan ui dari notifikasi status servis ✅
 
 ## FITUR YANG DI TAMBAHKAN
 
