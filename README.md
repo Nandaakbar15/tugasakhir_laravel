@@ -41,8 +41,6 @@ Dari Sisi Teknisi :
 -   Memperbaiki bug list game yang tidak muncul di email teknisi ✅
 -   Menampilkan gambar di email teknisi ✅
 -   Menampilkan data game request dengan gambar di email teknisi ✅
--   Memperbaiki data tidak muncul saat mencari data user di API data user ✅
--   Memperbaiki data tidak muncul saat mencari data atau laporan servis di API laporan servis ✅
 -   Memperbaiki Test Case pada Pelanggan dan Teknisi ✅
 -   Memberikan jarak tombol ubah di view ubah teknisi ✅
 -   Kini kolom memberi pesan sudah ada dan teknisi tidak perlu mengetik pesan ke pelanggan secara manual ✅
