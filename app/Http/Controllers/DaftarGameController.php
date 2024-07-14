@@ -12,7 +12,7 @@ class DaftarGameController extends Controller
 {
     public function daftar_game() // view daftar game
     {
-        $game = Game_request::paginate(5);
+        $game = Game_request::paginate(4);
         return view('dashboardpelanggan.daftargame.daftargame', [
             'game' => $game
         ]);

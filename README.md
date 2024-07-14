@@ -11,7 +11,7 @@
 
 Dari Sisi pelanggan:
 
--   Nambahin data ke teknisi ✅
+-   Nambahin data dan terkirim ke teknisi setelah itu notifikasi email terkirim ke teknisi ✅
 -   Lihat Status Servis (Kalo di sisi user pelanggan cuman bisa lihat aja) ✅
 -   Fitur Pembayaran dengan midtrans (Sudah di sempurnakan) ✅
 -   Bisa lihat profil toko ✅
@@ -24,6 +24,8 @@ Dari Sisi Teknisi :
 -   Bisa lihat laporan servis dan bisa export data ke excel atau PDF ✅
 -   Bisa ubah profil toko ✅
 -   Bisa CRUD Data Game ✅
+-   Bisa Kirim Notifikasi email ke pelanggan dengan mengirimkan pesan ✅
+-   Bisa ubah status servis pelanggan dan terkirim notifikasi email ke email pelanggan ✅
 
 ## FITUR YANG BELUM ADA
 
@@ -53,6 +55,7 @@ Dari Sisi Teknisi :
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
 -   Menambahkan tombol kembali di halaman daftar game (dashboard pelanggan) ✅
 -   Menambahkan fitur pagination di menu daftar game (dashboard pelanggan) ✅
+-   Menambahkan fitur pagination di tabel daftar game (dashboard teknisi / admin) ✅
 
 ## Contributing
 
