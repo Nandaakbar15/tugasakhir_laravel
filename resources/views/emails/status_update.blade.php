@@ -22,7 +22,8 @@
     <tr>
         <td style="padding: 10px;">
             <p style="margin: 0; font-size: 16px;">
-                Terimakasih sudah menggunakan layanan kami.
+                Terimakasih sudah menggunakan layanan kami. Untuk selanjutnya dimohon datang ke toko,
+                ambil konsol anda dan melakukan pembayaran.
             </p>
         </td>
     </tr>

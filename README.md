@@ -48,6 +48,7 @@ Dari Sisi Teknisi :
 -   Memperbaiki error saat hapus data pelanggan ✅
 -   Merapihkan tampilan ui dari notifikasi status servis ✅
 -   Fix error search game ✅
+-   Mengubah isi pesan di email update status servis ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

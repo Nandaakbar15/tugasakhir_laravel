@@ -14,13 +14,14 @@
         <h6 class="m-0 font-weight-bold text-primary">Tabel Laporan</h6>
     </div>
 
-    <div class="col-auto mb-4">
-        <a href="/exportexcel" class="btn btn-success">Export Excel</a>
-    </div>
-
     <div class="col-auto inline mb-4">
+        <a href="/exportexcel" class="btn btn-success">Export Excel</a>
         <a href="/exportpdf" class="btn btn-info">Export PDF</a>
     </div>
+
+    {{-- <div class="col-auto inline mb-4">
+
+    </div> --}}
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
