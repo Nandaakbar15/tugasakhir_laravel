@@ -5,6 +5,7 @@ use App\Http\Controllers\StatusServisController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\PelangganController;
 
 /*
 |--------------------------------------------------------------------------

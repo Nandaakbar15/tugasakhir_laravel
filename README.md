@@ -54,6 +54,7 @@ Dari Sisi Teknisi :
 
 -   Mengirim notifikasi dari teknisi ke pelanggan ✅
 -   Mengirim notifikasi status servis dari teknisi ketika status servisnya selesai ✅
+-   Menambahkan list game di dashboard pelanggan ✅
 -   Menambahkan tombol kembali di halaman daftar game (dashboard pelanggan) ✅
 -   Menambahkan fitur pagination di menu daftar game (dashboard pelanggan) ✅
 -   Menambahkan fitur pagination di tabel daftar game (dashboard teknisi / admin) ✅

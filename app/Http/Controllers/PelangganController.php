@@ -25,13 +25,38 @@ class PelangganController extends Controller
     {
         return view('dashboardpelanggan.layouts.home');
     }
-
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('dashboardpelanggan.servis.isidata'); // view untuk isi data
+        // session()->put([
+        //     'nama_pelanggan' => $request->input('nama_pelanggan'),
+        //     'alamat' => $request->input('alamat'),
+        //     'no_telp' => $request->input('no_telp'),
+        //     'email' => $request->input('email'),
+        //     'nama_konsol' => $request->input('nama_konsol'),
+        //     'kendala_kerusakan' => $request->input('kendala_kerusakan'),
+        //     'foto' => $request->input('foto')
+        // ]);
+
+        $nama_pelanggan = session("nama_pelanggan");
+        $alamat = session("alamat");
+        $no_telp = session("no_telp");
+        $email = session("email");
+        $nama_konsol = session("nama_konsol");
+        $foto = session('foto');
+        $kendala_kerusakan = session("kendala_kerusakan");
+
+        return view('dashboardpelanggan.servis.isidata', [
+            'nama_pelanggan' => $nama_pelanggan,
+            'alamat' => $alamat,
+            'no_telp' => $no_telp,
+            'email' => $email,
+            'nama_konsol' => $nama_konsol,
+            'kendala_kerusakan' => $kendala_kerusakan,
+            'foto' => $foto
+        ]); // view untuk isi data
     }
 
     /**
@@ -39,6 +64,15 @@ class PelangganController extends Controller
      */
     public function store(Request $request) // isi data logic
     {
+        session()->put([
+            'nama_pelanggan' => $request->input('nama_pelanggan'),
+            'alamat' => $request->input('alamat'),
+            'no_telp' => $request->input('no_telp'),
+            'email' => $request->input('email'),
+            'nama_konsol' => $request->input('nama_konsol'),
+            'kendala_kerusakan' => $request->input('kendala_kerusakan'),
+            'foto' => $request->input('foto')
+        ]);
 
         ini_set('max_execution_time', 199);
 

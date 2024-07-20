@@ -7,7 +7,7 @@ use App\Models\Game_request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Log;
 class DaftarGameController extends Controller
 {
     public function daftar_game() // view daftar game
@@ -20,7 +20,6 @@ class DaftarGameController extends Controller
 
     public function tambahGame(Request $request) // logika untuk tombol tambah ke list
     {
-
         $idGame = $request->input("id_game");
 
         $game = Game_request::find($idGame);
@@ -40,6 +39,7 @@ class DaftarGameController extends Controller
         ];
 
         session()->put('game', $gameList);
+
 
         return redirect('/pelanggan/servis')->with("success", "Game ditambahkan ke list!");
     }

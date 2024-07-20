@@ -24,7 +24,7 @@
                                     <form action="/pelanggan/tambahGame" method="POST">
                                         @csrf
                                         <input type="hidden" name="id_game" value="{{ $item->id_game }}">
-                                        <button type="submit" class="btn btn-outline-dark mt-auto">Tambah ke list!</button>
+                                        <button type="submit" class="btn btn-outline-dark mt-auto add-to-list">Tambah ke list!</button>
                                     </form>
                                 </div>
                             </div>

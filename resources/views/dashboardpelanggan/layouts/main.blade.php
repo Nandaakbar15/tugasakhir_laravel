@@ -12,6 +12,10 @@
         <link href="{{ asset("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css") }}" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset("css/styles2.css") }}" rel="stylesheet" />
+
+        <!-- Link JQuery!-->
+        <script src="{{ asset("https://code.jquery.com/jquery-3.6.0.min.js") }}"></script>
+        <script src="{{ asset("https://code.jquery.com/ui/1.12.1/jquery-ui.js") }}"></script>
     </head>
     <body>
         @include('dashboardpelanggan.partials.navbar')
