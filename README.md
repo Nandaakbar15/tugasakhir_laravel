@@ -49,6 +49,7 @@ Dari Sisi Teknisi :
 -   Merapihkan tampilan ui dari notifikasi status servis ✅
 -   Fix error search game ✅
 -   Mengubah isi pesan di email update status servis ✅
+-   Pesan notifikasi diubah saat user berhasil register atau membuat akun ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

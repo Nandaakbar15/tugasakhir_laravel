@@ -29,6 +29,6 @@ class RegisterController extends Controller
 
         // event(new Registered($user));
 
-        return redirect('/login')->with('success', 'Data user berhasil di tambah! Silahkan login');
+        return redirect('/login')->with('success', 'Akun berhasil dibuatkan dan ditambahkan! Silahkan login');
     }
 }
