@@ -50,6 +50,7 @@ Dari Sisi Teknisi :
 -   Fix error search game ✅
 -   Mengubah isi pesan di email update status servis ✅
 -   Pesan notifikasi diubah saat user berhasil register atau membuat akun ✅
+-   Set default routes ke halaman login ✅
 
 ## FITUR YANG DI TAMBAHKAN
 

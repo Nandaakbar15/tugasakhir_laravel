@@ -19,11 +19,7 @@ use App\Http\Controllers\PelangganController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function() {
-    return "hallooooo!";
+    return redirect()->route('login');
 });
 
 // routes login dan register
