@@ -40,7 +40,7 @@ class KelolaProfilTokoController extends Controller
         if ($request->hasFile('foto')) {
             // Hapus foto jika masih ada
             if ($profiltoko_request->foto) {
-            Storage::delete($profiltoko_request->foto);
+                Storage::delete($profiltoko_request->foto);
             }
 
             // Upload gambar baru

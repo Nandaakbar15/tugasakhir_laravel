@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <h1>Ubah Game</h1>
         <input type="hidden" name="gambarLama" value="{{ $game_request->foto }}">
-        <form action="/ubahgame/{{ $game_request->id_game }}" enctype="multipart/form-data" method="POST">
+        <form action="/ubahGame/{{ $game_request->id_game }}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="nama_game" class="form-label">Nama Game</label>
-                <input type="text" class="form-control @error('nama_game') is-invalid @enderror" id="nama_game" autofocus value="{{ old('nama_game', $game_request->nama_game) }}">
+                <input type="text" class="form-control @error('nama_game') is-invalid @enderror" id="nama_game" name="nama_game" autofocus value="{{ old('nama_game', $game_request->nama_game) }}">
 
                 @error('nama_game')
                     <div class="is-invalid">
@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="tgl_rilis" class="form-label">Tanggal Rilis</label>
-                <input type="date" class="form-control @error('tgl_rilis') is-invalid @enderror" id="tgl_rilis" autofocus value="{{ old('tgl_rilis', $game_request->tgl_rilis) }}">
+                <input type="date" class="form-control @error('tgl_rilis') is-invalid @enderror" id="tgl_rilis" name="tgl_rilis" autofocus value="{{ old('tgl_rilis', $game_request->tgl_rilis) }}">
 
                 @error('tgl_rilis')
                     <div class="is-invalid">
@@ -29,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="platform">Platform</label>
-                <input type="text" class="form-control @error('platform') is-invalid @enderror" id="platform" required value="{{ old('platform', $game_request->platform) }}">
+                <input type="text" class="form-control @error('platform') is-invalid @enderror" id="platform" name="platform" required value="{{ old('platform', $game_request->platform) }}">
 
                 @error('platform')
                     <div class="is-invalid">
@@ -39,7 +39,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="developer">Developer</label>
-                <input type="text" class="form-control @error('developer') is-invalid @enderror" id="developer" required value="{{ old('developer', $game_request->developer) }}">
+                <input type="text" class="form-control @error('developer') is-invalid @enderror" id="developer" name="developer" required value="{{ old('developer', $game_request->developer) }}">
 
                 @error('developer')
                     {{ $message }}
@@ -53,7 +53,7 @@
                 @endif
                 <div class="img-preview">
                     <label class="form-label" for="foto">foto</label>
-                    <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" onchange="previewImage()">
+                    <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" id="foto" onchange="previewImage()">
 
                     @error('foto')
                         {{ $message }}
@@ -78,6 +78,7 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
-    </script>
+</script>
+
     <a href="/datagame" class="btn btn-primary">Kembali</a>
 @endsection

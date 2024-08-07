@@ -72,32 +72,33 @@ class GameRequestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Game_request $game_request) // update data game
+    public function update(Request $request, Game_request $game_request)
     {
         $validate = $request->validate([
             'nama_game' => 'required|max:50',
             'developer' => 'required|max:50',
             'tgl_rilis' => 'required|date',
             'platform' => 'required|max:50',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-         // Handle file upload
-         if ($request->hasFile('foto')) {
+        if ($request->hasFile('foto')) {
             if($request->gambarLama) {
                 Storage::delete($request->gambarLama);
             }
             $file = $request->file('foto');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $path = $file->storeAs('images', $fileName, 'public');
-            $validatedData['foto'] = '/storage/' . $path;
+            $validate['foto'] = '/storage/' . $path;
+        } else {
+            $validatedData['foto'] = $game_request->foto;
         }
 
         $game_request->update($validate);
-        Game_request::where('id_game', $game_request->id_game)
-                 ->update($validate);
+
         return redirect('/dashboard')->with('success', 'Data Game berhasil di ubah!');
     }
+
 
     /**
      * Remove the specified resource from storage.

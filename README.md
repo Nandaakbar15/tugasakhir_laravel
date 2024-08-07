@@ -51,6 +51,7 @@ Dari Sisi Teknisi :
 -   Mengubah isi pesan di email update status servis ✅
 -   Pesan notifikasi diubah saat user berhasil register atau membuat akun ✅
 -   Set default routes ke halaman login ✅
+-   Gambar ga muncul pas beres update gambar.
 
 ## FITUR YANG DI TAMBAHKAN
 
